@@ -9,6 +9,17 @@ website:
         text: Accueil
         icon: house
       - about.qmd
+      
+  page-footer:
+    left: "Site créé avec [Quarto](https://quarto.org/)"
+    center: "©CEREMA"
+    right: 
+      - icon: linkedin
+        href: https://fr.linkedin.com/company/cerema
+      - icon: twitter-x 
+        href: https://x.com/ceremacom
+      - icon: youtube
+        href: https://www.youtube.com/@cerema3139 
 
 format:
   html:

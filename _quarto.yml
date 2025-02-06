@@ -1,0 +1,22 @@
+project:
+  type: website
+
+website:
+  title: "Outil d'auto-diagnostic"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+        icon: house
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    #toc: true
+    #toc-location: left
+    #toc-depth: 2
+    
+editor: visual
+

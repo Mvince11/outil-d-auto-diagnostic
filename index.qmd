@@ -1,0 +1,33 @@
+---
+#title: "questionnaire"
+format: html
+---
+
+```{=html}
+<div class="bloc_principal">
+  <h3>Comment fonctionne l'outil d'auto-diagnostic ?</h3>
+
+  <div class="bloc_container">
+    <div class="blocs_communs">
+      <img src="images/banc_arbre.png">
+      <p>Vous faîtes le point sur votre action pour la transition écologique</p>
+      <hr class="custom-hr">
+      <p style="font-size:0.8em; color:gray;">En une soixantaine de questions <br> évaluez la maturité de votre entreprise</p> 
+    </div>
+  
+    <div class="blocs_communs">
+      <img src="images/livre.png">
+      <p>Vous obtenez un rapport détaillé</p>
+      <hr class="custom-hr">
+      <p style="font-size:0.8em; color:gray;">Le positionnement de votre entreprise en 6 thématiques en fonction de vos réponses</p>
+    </div>
+
+    <div class="blocs_communs">
+      <img src="images/citoyens.png">
+      <p>Vous accédez à des ressources pour aller plus loin</p>
+      <hr class="custom-hr">
+      <p style="font-size:0.8em; color:gray;">Les partenaires de la démarche mettent à votre disposition toutes leurs expertises pour passer à l'action</p>
+    </div>
+  </div>
+</div>
+```

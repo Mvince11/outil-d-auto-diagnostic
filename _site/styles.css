@@ -11,6 +11,8 @@
     justify-content: center; /* Centre les blocs horizontalement */
     gap: 20px; /* Espacement entre les div */
     margin-top: 20px; /* Espacement entre le titre et les div */
+    background-color: #fff9f1;
+    padding: 10px;
   }
 
   .blocs_communs {
@@ -31,6 +33,7 @@
     border-radius: 8px;
     height: 366px;
     cursor: pointer;
+    background-color: white;
   }
 
   .blocs_communs img {

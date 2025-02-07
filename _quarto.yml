@@ -1,9 +1,13 @@
 project:
   type: website
+  title: "Outil d'auto-diagnostic"
 
 website:
-  title: "Outil d'auto-diagnostic"
+  back-to-top-navigation: true
   navbar:
+    title: "<a href='https://cc-hautpoitou.fr/' target='_blank'><img class='navbar-logo' src='images/logos/Cc-du-haut-poitou-logo.png' height='90px'></a>"
+    #logo: "images/logos/Cc-du-haut-poitou-logo.png"
+    logo-alt: "CC du Haut Poitou"
     left:
       - href: index.qmd
         text: Accueil

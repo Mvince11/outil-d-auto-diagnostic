@@ -4,6 +4,7 @@ format: html
 ---
 
 ```{=html}
+
 <div class="bloc_principal">
   <h3>Comment fonctionne l'outil d'auto-diagnostic ?</h3>
 
@@ -29,5 +30,19 @@ format: html
       <p style="font-size:0.8em; color:gray;">Les partenaires de la démarche mettent à votre disposition toutes leurs expertises pour passer à l'action</p>
     </div>
   </div>
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+  <a href="about.html">
+    <button style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      À propos
+    </button>
+  </a>
+
+  <a href="index.html">
+    <button style="padding: 10px 20px; font-size: 16px; background-color: #28A745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
+      Accueil
+    </button>
+  </a>
 </div>
 ```

@@ -8,11 +8,14 @@ website:
     title: "<a href='https://cc-hautpoitou.fr/' target='_blank'><img class='navbar-logo' src='images/logos/Cc-du-haut-poitou-logo.png' height='150px'></a>"
     #logo: "images/logos/Cc-du-haut-poitou-logo.png"
     logo-alt: "CC du Haut Poitou"
-    left:
-      - href: index.qmd
-        text: Accueil
-        icon: house
-      - about.qmd
+    left: []
+      # - href: index.qmd
+      #   text: Accueil
+      #   icon: house
+      # - about.qmd
+    right:
+        - text: "<button style='padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;'>Se connecter</button>"
+          href: login.html  # Remplace par l'URL de connexion
       
   page-footer:
     left: "Site créé avec [Quarto](https://quarto.org/)"

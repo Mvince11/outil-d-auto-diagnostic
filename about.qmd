@@ -2,8 +2,25 @@
 title: "About"
 ---
 
+
 About this site
 
 ```{r}
 1 + 1
+```
+
+```{=html}
+<div style="text-align: center; margin-top: 20px;">
+  <a href="about.html">
+    <button style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      À propos
+    </button>
+  </a>
+
+  <a href="index.html">
+    <button style="padding: 10px 20px; font-size: 16px; background-color: #28A745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
+      Accueil
+    </button>
+  </a>
+</div>
 ```

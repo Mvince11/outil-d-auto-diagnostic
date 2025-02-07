@@ -51,11 +51,10 @@
   }
   
   .navbar-logo {
-  max-width: 150px;
+  max-width: 140px;
   height: auto !important; /* Maintenir le ratio de l'image */
   max-height: none !important;
-  position: absolute;
-  margin-top: -20px;
+  position: relative;
   border-bottom-width: 1px;
   border-color: rgba(101, 147, 220, 0.5);
   border-left-width: 1px;
@@ -65,8 +64,23 @@
   box-shadow: rgba(101, 147, 220, 0.2) 0px 4px 8px 0px;
   opacity: 1;
   border-radius: 8px;
+  top: 50px;
 }
 
 .navbar .navbar-collapse{
-  margin-left: 20vh;
+  margin-left: 50vh;
+}
+
+.navbar {
+  position: relative;  
+  z-index: 1000; 
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 1030px){
+  #quarto-content{
+   padding-top:10vh; 
+  } 
 }

@@ -1,0 +1,39 @@
+---
+#title: "Connexion"
+format: html
+---
+
+<div style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+  <h2 style="text-align: center;">Se connecter</h2>
+  
+  <form id="login-form">
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
+
+    <button type="submit" style="width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+      Connexion
+    </button>
+  </form>
+
+  <p id="error-message" style="color: red; text-align: center; display: none;">Email ou mot de passe incorrect.</p>
+</div>
+
+<script>
+  document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    // Vérification simple (remplace ceci par un vrai système backend)
+    if (email === "test@example.com" && password === "password123") {
+      alert("Connexion réussie !");
+      window.location.href = "index.html";  // Redirige vers la page d'accueil
+    } else {
+      document.getElementById("error-message").style.display = "block";
+    }
+  });
+</script>

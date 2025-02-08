@@ -10,17 +10,21 @@
     display: flex;
     justify-content: center; /* Centre les blocs horizontalement */
     gap: 20px; /* Espacement entre les div */
-    margin-top: 20px; /* Espacement entre le titre et les div */
-    background-color: #fff9f1;
+    margin-top: 20px; 
     padding: 10px;
+    background-color: #fff9f1;
+    flex-wrap: nowrap; /* Empêche le passage à la ligne */
+    align-items: flex-start; /* Alignement des blocs en haut */
   }
 
   .blocs_communs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 222px;
+    text-align: center;
+    flex-shrink: 0;
+    /*justify-content: center;*/
+    width: 260px;
     padding: 10px;
     border-bottom-width: 1px;
     border-color: rgba(101, 147, 220, 0.5);
@@ -31,15 +35,33 @@
     box-shadow: rgba(101, 147, 220, 0.2) 0px 4px 8px 0px;
     opacity: 1;
     border-radius: 8px;
-    height: 366px;
+    height: 470px;
     cursor: pointer;
     background-color: white;
   }
 
   .blocs_communs img {
-    width: 10vw;
-    max-width: 100px;
+    /*width: 10vw;*/
+    width: 200px; /* Taille uniforme */
+    height: 200px; /* Hauteur fixe */
+    object-fit: contain; /* Évite la déformation */
+    margin-bottom: 10px;
   }
+    
+  .blocs_communs .description {
+  min-height: 60px; /* Fixe une hauteur pour la partie descriptive */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .blocs_communs p {
+  min-height: 72px; /* Assure que les textes ont la même hauteur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
   
   .custom-hr{
     height: 1px;

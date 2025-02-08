@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 22c7b733-8680-44a6-aca5-00d92b85454d
+      url: https://website.quarto.pub/outil-dauto-diagnostic

@@ -1,0 +1,52 @@
+[
+  {
+    "Numero": 1,
+    "Questions": "Q1 / La réduction des impacts sur l'environnement et/ou votre politique RSE est-elle intégrée dans la stratégie de votre structure ?",
+    "options": ["Oui elle est au coeur de notre projet", "Oui mais c'est un enjeu mineur dans notre stratégie", "Non elle n'est pas intégrée dans notre stratégie"]
+  },
+  {
+    "Numero": 2,
+    "Questions": "Q2 / Une (ou plusieurs) personne au sein de votre structure est-elle \"référente/pilote\" sur le suivi des impacts environnementaux de votre activité ?",
+    "options": ["Oui une personne (ou plusieurs) est chargée, à temps plein, de suivre nos impacts environnementaux (indiquez le nom de la (ou les) personne et son niveau de responsabilité)", "Oui, une personne est en charge de suivre nos impacts environnementaux mais cela ne représente qu'une petite partie de ses missions (indiquez le nom de la personne et son niveau de responsabilité)", "Non"]
+  },
+  {
+    "Numero": 3,
+    "Questions": "Q3 / Avez-vous défini des objectifs chiffrés relatifs à votre politique environnementale et/ou RSE ?",
+    "options": ["Oui", "En cours", "Non"]
+  },
+  {
+    "Numero": 4,
+    "Questions": "Q4 / Avez-vous mis en place des outils de pilotage et de suivi des impacts environnementaux de vos activités, produits et services (ex: vos émissions de GES, vos consommations d'eau et d'énergie, votre impact sur la biodiversité...) ?",
+    "options": ["Oui nous avons mis en place une démarche rigoureuse de suivi et réduction de nos différents impacts environnementaux (diagnostics, tableaux de bord, indicateurs, etc.)", "Nous connaissons nos principaux impacts environnementaux mais nous n'avons pas mis en place de suivi précis, ni régulier de ces derniers (diagnostic réalisé mais pas d'outils de suivi précis dans la durée)", "Nous ne connaissons pas bien les impacts environnementaux de notre activité et nous n'avons aucun outil de pilotage, ni de suivi de ces derniers"]
+  },
+  {
+    "Numero": 5,
+    "Questions": "Q5 / Votre structure fait-elle l'objet d'une (ou plusieurs) certification et/ou labellisation en lien avec les enjeux environnementaux et/ou de politique RSE ?",
+    "options": ["Oui", "Non"]
+  },
+  {
+    "Numero": 6,
+    "Questions": "Q6 / Réalisez-vous une veille sur l'évolution de la réglementation environnementale liée à vos activités ?",
+    "options": ["Oui nous avons mis en place une veille rigoureuse en interne sur la réglementation environnementale", "Oui nous nous appuyons sur un dispositif externalisé de veille (prestation, abonnement, etc.)", "Nous suivons l'évolution de la réglementation environnementale mais de manière partielle et lacunaire", "Non"]
+  },
+  {
+    "Numero": 7,
+    "Questions": "Q7 / Sensibilisez-vous vos collaborateurs sur les enjeux de réduction des impacts environnementaux (démarche RSE, impact carbone, tri des déchets, éco-gestes, etc.) ?",
+    "options": ["Nous sensibilisons régulièrement nos collaborateurs (campagnes de communication interne, formations, etc.) et nos collaborateurs s'impliquent fortement et sont \"force de proposition\" sur ces enjeux", "Nous sensibilisons régulièrement nos collaborateurs (campagnes de communication interne, formations, etc.), sans qu'ils jouent cependant un rôle moteur en interne sur ces enjeux", "Nos collaborateurs ne sont pas impliqués en interne, ni sensibilisés sur le sujet", "Non concerné, nous n’avons pas de collaborateurs"]
+  },
+  {
+    "Numero": 8,
+    "Questions": "Q8 / Intégrez-vous des critères environnementaux dans votre politique d'achat (par exemple via des certifications ou labels environnementaux) ?",
+    "options": ["Oui systématiquement (par exemple via un cahier des charges avec des clauses sur l'environnement)", "Oui mais de manière partielle", "Non ce n'est pas pris en compte", "Non concerné"]
+  },
+  {
+    "Numero": 9,
+    "Questions": "Q9 / Intégrez-vous des critères environnementaux (chartes, certifications ou labels environnementaux, etc.) dans le choix de vos fournisseurs et sous-traitants ?)",
+    "options": ["Oui systématiquement (par exemple via un cahier des charges avec des clauses sur l'environnement)", "Oui mais de manière partielle", "Non ce n'est pas pris en compte", "Non concerné"]
+  },
+  {
+    "Numero": 10,
+    "Questions": "Q10 / Seriez-vous intéressé pour un accompagnement à la réalisation d'un bilan carbone de votre structure ?",
+    "options": ["Oui", "Non (même si je n'ai jamais réalisé de bilan carbone)", "Non car j'ai déjà réalisé un bilan carbone"]
+  }
+]

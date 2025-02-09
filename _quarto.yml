@@ -16,6 +16,7 @@ website:
     right:
         - text: "<button style='padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;'>Se connecter</button>"
           href: login.html  # Remplace par l'URL de connexion
+        
       
   page-footer:
     left: "Site créé avec [Quarto](https://quarto.org/)"
@@ -35,6 +36,9 @@ format:
     #toc: true
     #toc-location: left
     #toc-depth: 2
+    
+execute:
+  freeze: auto
     
 editor: visual
 

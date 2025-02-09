@@ -1,0 +1,102 @@
+---
+#title: "questionnaire"
+format: html
+execute:
+  freeze: auto
+---
+
+```{r}
+#| include: false
+library(readxl)
+library(jsonlite)
+library(dplyr)
+library(stringr)
+
+# Charger le fichier Excel
+file_path <- "data/Pilotage_RSE_nettoye.xlsx"  # Mets le bon chemin
+df <- read_excel(file_path)
+
+# Vérifier les données chargées
+print(head(df))
+
+# Nettoyage des NA pour éviter les lignes vides
+df <- df %>% filter(!is.na(Questions), !is.na(Reponses))
+
+df <- df %>%
+  mutate(Numero = as.integer(str_extract(Questions, "\\d+"))) %>%  # Extrait uniquement le numéro
+  arrange(Numero, Questions)  # Trie d'abord par numéro, puis par texte
+
+# Regrouper les réponses par question
+questions_list <- df %>%
+  group_by(Numero, Questions) %>%  # Groupement avec le numéro pour garantir l'ordre
+  summarise(options = list(Reponses), .groups = "drop") %>%
+  arrange(Numero) 
+
+# Supprimer la colonne temporaire si nécessaire
+df <- df %>% select(-Numero)
+
+# Vérifier le résultat
+print(questions_list)
+
+# Sauvegarde en JSON
+write_json(questions_list, "data/questions.json", pretty = TRUE, auto_unbox = TRUE)
+
+print("✅ Questions et réponses exportées en JSON avec succès !")
+
+```
+
+```{=html}
+<h3 style="text-align:center; margin-bottom:2vw;">Pilotage RSE et stratégie bas carbone</h3>
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
+
+library(jsonlite)
+library(htmltools)
+
+# Lire le JSON
+questions <- fromJSON("data/questions.json")
+
+# Générer le formulaire HTML
+html_output <- "<form id='quiz-form'><div id='questions-container'>"
+
+for (i in seq_along(questions$Questions)) {
+  
+  # Vérifier si la question est NA
+  if (!is.na(questions$Questions[i])) {
+    html_output <- paste0(html_output, "<div><p><strong>", questions$Questions[i], "</strong></p>")
+    
+    # Vérifier et afficher uniquement les options non-NA
+    valid_options <- questions$options[[i]][!is.na(questions$options[[i]])]
+    
+    for (option in valid_options) {
+      html_output <- paste0(
+        html_output,
+        "<label style='display:flex;
+                      justify-content:flex-start;
+                      border-radius: 10px;
+                      color: #2c3771;
+                      margin: 2px;
+                      flex-wrap:nowrap;
+                      padding-left: 14px;
+                      padding-right: 14px;
+                      background-color: #e5e8ef;
+                      cursor: pointer;'><input type='checkbox' name='q", i, "' value='", option, "'> ", option, "</label>"
+      )
+    }
+    
+    html_output <- paste0(html_output, "</div><br>")
+  }
+}
+
+html_output <- paste0(html_output, "<button type='submit'>Valider</button></form>")
+
+# Affichage en HTML
+HTML(html_output)
+
+
+```

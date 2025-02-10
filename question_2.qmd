@@ -1,0 +1,31 @@
+---
+format: html
+---
+
+## Une (ou plusieurs) personne au sein de votre structure est-elle "référente/pilote" sur le suivi des impacts environnementaux de votre activité ?
+
+### Sélectionnez votre réponse :
+
+- [ ] Oui une personne (ou plusieurs) est chargée, à temps plein, de suivre nos impacts environnementaux (indiquez le nom de la (ou les) personne et son niveau de responsabilité)
+
+- [ ] Oui, une personne est en charge de suivre nos impacts environnementaux mais cela ne représente qu'une petite partie de ses missions (indiquez le nom de la personne et son niveau de responsabilité)
+
+- [ ] Non
+
+<br>
+<button id='precedent' onclick="window.location.href='question_1.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='question_3.html'" >Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q2', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

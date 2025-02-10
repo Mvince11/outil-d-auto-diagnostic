@@ -1,0 +1,33 @@
+---
+format: html
+---
+
+## Sensibilisez-vous vos collaborateurs sur les enjeux de réduction des impacts environnementaux (démarche RSE, impact carbone, tri des déchets, éco-gestes, etc.) ?
+
+### Sélectionnez votre réponse :
+
+- [ ] Nous sensibilisons régulièrement nos collaborateurs (campagnes de communication interne, formations, etc.) et nos collaborateurs s'impliquent fortement et sont "force de proposition" sur ces enjeux
+
+- [ ] Nous sensibilisons régulièrement nos collaborateurs (campagnes de communication interne, formations, etc.), sans qu'ils jouent cependant un rôle moteur en interne sur ces enjeux
+
+- [ ] Nos collaborateurs ne sont pas impliqués en interne, ni sensibilisés sur le sujet
+
+- [ ] Non concerné, nous n�<U+0080><U+0099>avons pas de collaborateurs
+
+<br>
+<button id='precedent' onclick="window.location.href='question_6.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='question_8.html'" >Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q7', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

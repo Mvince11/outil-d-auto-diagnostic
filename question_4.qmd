@@ -1,0 +1,31 @@
+---
+format: html
+---
+
+## Avez-vous mis en place des outils de pilotage et de suivi des impacts environnementaux de vos activités, produits et services (ex: vos émissions de GES, vos consommations d'eau et d'énergie, votre impact sur la biodiversité...) ?
+
+### Sélectionnez votre réponse :
+
+- [ ] Oui nous avons mis en place une démarche rigoureuse de suivi et réduction de nos différents impacts environnementaux (diagnostics, tableaux de bord, indicateurs, etc.)
+
+- [ ] Nous connaissons nos principaux impacts environnementaux mais nous n'avons pas mis en place de suivi précis, ni régulier de ces derniers (diagnostic réalisé mais pas d'outils de suivi précis dans la durée)
+
+- [ ] Nous ne connaissons pas bien les impacts environnementaux de notre activité et nous n'avons aucun outil de pilotage, ni de suivi de ces derniers
+
+<br>
+<button id='precedent' onclick="window.location.href='question_3.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='question_5.html'" >Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q4', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

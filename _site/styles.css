@@ -101,6 +101,22 @@
   left: 0;
 }
 
+label{
+  display:flex;
+  justify-content:flex-start;
+  border-radius: 10px;
+  color: #2c3771;
+  margin: 2px;
+  flex-wrap:nowrap;
+  padding-left: 30px;
+  padding-right: 14px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  background-color: #e5e8ef;
+  cursor: pointer;
+}
+
+
 @media (max-width: 1030px){
   #quarto-content{
    padding-top:10vh; 

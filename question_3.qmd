@@ -1,0 +1,31 @@
+---
+format: html
+---
+
+## Avez-vous défini des objectifs chiffrés relatifs à votre politique environnementale et/ou RSE ?
+
+### Sélectionnez votre réponse :
+
+- [ ] Oui
+
+- [ ] En cours
+
+- [ ] Non
+
+<br>
+<button id='precedent' onclick="window.location.href='question_2.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='question_4.html'" >Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q3', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

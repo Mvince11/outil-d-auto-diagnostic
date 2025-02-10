@@ -3,8 +3,9 @@ library(readxl)
 library(stringr)
 
 # Charger le fichier Excel
-file_path <- "data/Pilotage_RSE_nettoye.xlsx"
-df <- read_excel(file_path)
+df <- read_excel(file_path, guess_max = 1000) %>%
+  mutate(across(everything(), ~iconv(.x, from = "latin1", to = "UTF-8")))
+
 
 # Nettoyage des NA
 df <- df %>% filter(!is.na(Questions), !is.na(Reponses))
@@ -20,14 +21,22 @@ questions_list <- df %>%
   summarise(options = list(Reponses), .groups = "drop") %>%
   arrange(Numero)
 
+# Nombre total de questions
+total_questions <- nrow(questions_list)
+
 # Générer un fichier .qmd pour chaque question
 for (i in seq_along(questions_list$Questions)) {
-  question <- questions_list$Questions[i]
+  question <- str_remove(questions_list$Questions[i], "Q\\d+\\s*/\\s*")
+  
   options <- questions_list$options[[i]]
+  
+  # Définir les pages de navigation
+  prev_page <- ifelse(i > 1, paste0("question_", questions_list$Numero[i - 1], ".html"), "#")
+  next_page <- ifelse(i < total_questions, paste0("question_", questions_list$Numero[i + 1], ".html"), "#")
   
   qmd_content <- paste0(
     "---\n",
-    "title: \"", question, "\"\n",
+    #"title: \"", question, "\"\n",
     "format: html\n",
     "---\n\n",
     "## ", question, "\n\n",
@@ -39,10 +48,33 @@ for (i in seq_along(questions_list$Questions)) {
                           "- [ ] ", opt, "\n\n")
   }
   
+  # Ajouter les boutons de navigation
+  qmd_content <- paste0(qmd_content,
+                        "<br>\n",
+                        "<button id='precedent' onclick=\"window.location.href='", prev_page, "'\" ",
+                        ifelse(i == 1, "disabled", ""), ">⬅ Précédent</button>\n",
+                        "<button id='suivant' onclick=\"window.location.href='", next_page, "'\" ",
+                        ifelse(i == total_questions, "disabled", ""), ">Suivant ➡</button>\n"
+  )
+  
+  # Ajouter un script JS pour enregistrer les réponses
+  qmd_content <- paste0(qmd_content, "\n\n",
+                        "<script>\n",
+                        "document.getElementById('quiz-form').addEventListener('submit', function(event) {\n",
+                        "  event.preventDefault();\n",
+                        "  let responses = [];\n",
+                        "  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {\n",
+                        "    responses.push(checkbox.value);\n",
+                        "  });\n",
+                        "  localStorage.setItem('reponses_q", i, "', JSON.stringify(responses));\n",
+                        "  alert('Réponse enregistrée !');\n",
+                        "});\n",
+                        "</script>\n"
+  )
+  
   # Écrire le fichier .qmd
   file_name <- paste0("question_", questions_list$Numero[i], ".qmd")
   writeLines(qmd_content, file_name)
 }
 
-print("✅ Fichiers générés avec succès !")
-
+print("✅ Fichiers générés avec navigation et formulaire !")

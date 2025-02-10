@@ -1,0 +1,31 @@
+---
+format: html
+---
+
+## Seriez-vous intéressé pour un accompagnement à la réalisation d'un bilan carbone de votre structure ?
+
+### Sélectionnez votre réponse :
+
+- [ ] Oui
+
+- [ ] Non (même si je n'ai jamais réalisé de bilan carbone)
+
+- [ ] Non car j'ai déjà réalisé un bilan carbone
+
+<br>
+<button id='precedent' onclick="window.location.href='question_9.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='#'" disabled>Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q10', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

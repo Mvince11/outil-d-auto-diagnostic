@@ -1,0 +1,29 @@
+---
+format: html
+---
+
+## La réduction des impacts sur l'environnement et/ou votre politique RSE est-elle intégrée dans la stratégie de votre structure ?
+
+### Sélectionnez votre réponse :
+
+-   [ ] Oui elle est au coeur de notre projet
+
+-   [ ] Oui mais c'est un enjeu mineur dans notre stratégie
+
+-   [ ] Non elle n'est pas intégrée dans notre stratégie
+
+<br> <button id='precedent' onclick="window.location.href='#'" disabled>⬅ Précédent</button> <button id='suivant' onclick="window.location.href='question_2.html'" >Suivant ➡</button>
+
+```{=html}
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q1', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+```

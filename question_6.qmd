@@ -1,0 +1,33 @@
+---
+format: html
+---
+
+## Réalisez-vous une veille sur l'évolution de la réglementation environnementale liée à vos activités ?
+
+### Sélectionnez votre réponse :
+
+- [ ] Oui nous avons mis en place une veille rigoureuse en interne sur la réglementation environnementale
+
+- [ ] Oui nous nous appuyons sur un dispositif externalisé de veille (prestation, abonnement, etc.)
+
+- [ ] Nous suivons l'évolution de la réglementation environnementale mais de manière partielle et lacunaire
+
+- [ ] Non
+
+<br>
+<button id='precedent' onclick="window.location.href='question_5.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='question_7.html'" >Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q6', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

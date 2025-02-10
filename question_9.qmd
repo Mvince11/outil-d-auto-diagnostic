@@ -1,0 +1,33 @@
+---
+format: html
+---
+
+## Intégrez-vous des critères environnementaux (chartes, certifications ou labels environnementaux, etc.) dans le choix de vos fournisseurs et sous-traitants ?)
+
+### Sélectionnez votre réponse :
+
+- [ ] Oui systématiquement (par exemple via un cahier des charges avec des clauses sur l'environnement)
+
+- [ ] Oui mais de manière partielle
+
+- [ ] Non ce n'est pas pris en compte
+
+- [ ] Non concerné
+
+<br>
+<button id='precedent' onclick="window.location.href='question_8.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='question_10.html'" >Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q9', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

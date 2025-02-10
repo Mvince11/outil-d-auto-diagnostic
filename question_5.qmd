@@ -1,0 +1,29 @@
+---
+format: html
+---
+
+## Votre structure fait-elle l'objet d'une (ou plusieurs) certification et/ou labellisation en lien avec les enjeux environnementaux et/ou de politique RSE ?
+
+### Sélectionnez votre réponse :
+
+- [ ] Oui
+
+- [ ] Non
+
+<br>
+<button id='precedent' onclick="window.location.href='question_4.html'" >⬅ Précédent</button>
+<button id='suivant' onclick="window.location.href='question_6.html'" >Suivant ➡</button>
+
+
+<script>
+document.getElementById('quiz-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q5', JSON.stringify(responses));
+  alert('Réponse enregistrée !');
+});
+</script>
+

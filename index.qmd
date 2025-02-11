@@ -33,7 +33,7 @@ format: html
 </div>
 
 <div style="text-align: center; margin-top: 20px;">
-  <a href="about.html">
+  <a href="question_1.html">
     <button style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
       Je me connecte
     </button>

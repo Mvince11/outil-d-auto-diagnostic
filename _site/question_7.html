@@ -112,6 +112,17 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p><strong style="color: #2c3771;
+                    font-size: 18px;
+                    position: relative;
+                    left: 39%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 1px;
+                    background: #dee2e6;
+                    padding: 5px;
+                    border-radius: 15px;">Question 7 sur 10</strong></p>
 <div style="text-align: left; margin-bottom: 20px;">
 <button onclick="window.location.href='question_6.html'" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
 Précédent
@@ -127,7 +138,7 @@ Précédent
 <li><p><label><input type="checkbox">Nos collaborateurs ne sont pas impliqués en interne, ni sensibilisés sur le sujet</label></p></li>
 <li><p><label><input type="checkbox">Non concerné, nous n�&lt;U+0080&gt;&lt;U+0099&gt;avons pas de collaborateurs</label></p></li>
 </ul>
-<p><br> <button id="continuer" onclick="sauvegarderReponses()" style="background-color: #2c3771; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;">📌 Continuer plus tard</button> <button onclick="window.location.href='question_8.html'" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Suivant</button></p>
+<p><br> <button id="continuer" onclick="sauvegarderReponses()" style="color: #932020; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;">Continuer plus tard</button> <button onclick="window.location.href='question_8.html'" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Suivant</button></p>
 <script>
 document.getElementById('quiz-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -138,8 +149,6 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
   localStorage.setItem('reponses_q7', JSON.stringify(responses));
   alert('Réponse enregistrée !');
 });
-</script>
-<script>
 function sauvegarderReponses() {
   let responses = [];
   document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
@@ -147,7 +156,7 @@ function sauvegarderReponses() {
   });
   localStorage.setItem('reponses_q7', JSON.stringify(responses));
   alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');
-}
+ window.location.href = 'index.html'; }
 </script>
 
 

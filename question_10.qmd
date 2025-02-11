@@ -2,6 +2,18 @@
 format: html
 ---
 
+<strong style='color: #2c3771;
+                    font-size: 18px;
+                    position: relative;
+                    left: 39%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 1px;
+                    background: #dee2e6;
+                    padding: 5px;
+                    border-radius: 15px;'>Question 10 sur 10</strong>
+
 <div style='text-align: left; margin-bottom: 20px;'>
 <button onclick="window.location.href='question_9.html'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;'>Précédent</button>
 </div>
@@ -17,7 +29,7 @@ format: html
 - [ ] Non car j'ai déjà réalisé un bilan carbone
 
 <br>
-<button id='continuer' onclick='sauvegarderReponses()' style='background-color: #2c3771; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;'>📌 Continuer plus tard</button>
+<button id='continuer' onclick='sauvegarderReponses()' style='color: #932020; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;'>Continuer plus tard</button>
 <button onclick="window.location.href='#'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;' disabled>Suivant</button>
 
 
@@ -31,8 +43,6 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
   localStorage.setItem('reponses_q10', JSON.stringify(responses));
   alert('Réponse enregistrée !');
 });
-</script>
-<script>
 function sauvegarderReponses() {
   let responses = [];
   document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
@@ -40,6 +50,6 @@ function sauvegarderReponses() {
   });
   localStorage.setItem('reponses_q10', JSON.stringify(responses));
   alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');
-}
+ window.location.href = 'index.html'; }
 </script>
 

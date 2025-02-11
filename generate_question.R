@@ -26,7 +26,7 @@ total_questions <- nrow(questions_list)
 
 # Générer un fichier .qmd pour chaque question
 for (i in seq_along(questions_list$Questions)) {
-  question <- str_remove(questions_list$Questions[i], "Q\\d+\\s*/\\s*")
+  question <- str_remove(questions_list$Questions[i], "Q\\d+\\s*/\\s*")# permet de supprimer le Q et le /
   
   options <- questions_list$options[[i]]
   
@@ -39,6 +39,19 @@ for (i in seq_along(questions_list$Questions)) {
     #"title: \"", question, "\"\n",
     "format: html\n",
     "---\n\n",
+    
+    "<strong style='color: #2c3771;
+                    font-size: 18px;
+                    position: relative;
+                    left: 39%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 1px;
+                    background: #dee2e6;
+                    padding: 5px;
+                    border-radius: 15px;'>",
+    "Question ", i, " sur ", total_questions, "</strong>\n\n",
     
     # Nouvelle ligne pour le bouton précédent
     "<div style='text-align: left; margin-bottom: 20px;'>\n",
@@ -64,8 +77,8 @@ for (i in seq_along(questions_list$Questions)) {
                         
                         # Bouton "Continuer plus tard"
                         "<button id='continuer' onclick='sauvegarderReponses()' ",
-                        "style='background-color: #2c3771; color: white; border: none; padding: 10px; ",
-                        "border-radius: 5px; cursor: pointer; margin-right: 10px;'>📌 Continuer plus tard</button>\n",
+                        "style='color: #932020; border: none; padding: 10px; ",
+                        "border-radius: 5px; cursor: pointer; margin-right: 10px;'>Continuer plus tard</button>\n",
                         
                         "<button onclick=\"window.location.href='", next_page, "'\" ",
                         "style='background-color: red; color: white; border: none; padding: 10px; ",
@@ -85,8 +98,8 @@ for (i in seq_along(questions_list$Questions)) {
                         "  localStorage.setItem('reponses_q", i, "', JSON.stringify(responses));\n",
                         "  alert('Réponse enregistrée !');\n",
                         "});\n",
-                        "</script>\n",
-                        "<script>\n",
+                        
+                        
                         "function sauvegarderReponses() {\n",
                         "  let responses = [];\n",
                         "  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {\n",
@@ -94,6 +107,7 @@ for (i in seq_along(questions_list$Questions)) {
                         "  });\n",
                         "  localStorage.setItem('reponses_q", i, "', JSON.stringify(responses));\n",
                         "  alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');\n",
+                        " window.location.href = 'index.html'; ",
                         "}\n",
                         "</script>\n"
   )

@@ -39,6 +39,16 @@ for (i in seq_along(questions_list$Questions)) {
     #"title: \"", question, "\"\n",
     "format: html\n",
     "---\n\n",
+    
+    # Nouvelle ligne pour le bouton précédent
+    "<div style='text-align: left; margin-bottom: 20px;'>\n",
+    ifelse(i > 1, paste0(
+      "<button onclick=\"window.location.href='", prev_page, "'\" ",
+      "style='background-color: red; color: white; border: none; padding: 10px; ",
+      "border-radius: 5px; cursor: pointer;'>Précédent</button>\n"
+    ), ""),
+    "</div>\n\n",
+    
     "## ", question, "\n\n",
     "### Sélectionnez votre réponse :\n\n"
   )
@@ -51,10 +61,16 @@ for (i in seq_along(questions_list$Questions)) {
   # Ajouter les boutons de navigation
   qmd_content <- paste0(qmd_content,
                         "<br>\n",
-                        "<button id='precedent' onclick=\"window.location.href='", prev_page, "'\" ",
-                        ifelse(i == 1, "disabled", ""), ">⬅ Précédent</button>\n",
-                        "<button id='suivant' onclick=\"window.location.href='", next_page, "'\" ",
-                        ifelse(i == total_questions, "disabled", ""), ">Suivant ➡</button>\n"
+                        
+                        # Bouton "Continuer plus tard"
+                        "<button id='continuer' onclick='sauvegarderReponses()' ",
+                        "style='background-color: #2c3771; color: white; border: none; padding: 10px; ",
+                        "border-radius: 5px; cursor: pointer; margin-right: 10px;'>📌 Continuer plus tard</button>\n",
+                        
+                        "<button onclick=\"window.location.href='", next_page, "'\" ",
+                        "style='background-color: red; color: white; border: none; padding: 10px; ",
+                        "border-radius: 5px; cursor: pointer;' ",
+                        ifelse(i == total_questions, "disabled", ""), ">Suivant</button>\n"
   )
   
   # Ajouter un script JS pour enregistrer les réponses
@@ -69,6 +85,16 @@ for (i in seq_along(questions_list$Questions)) {
                         "  localStorage.setItem('reponses_q", i, "', JSON.stringify(responses));\n",
                         "  alert('Réponse enregistrée !');\n",
                         "});\n",
+                        "</script>\n",
+                        "<script>\n",
+                        "function sauvegarderReponses() {\n",
+                        "  let responses = [];\n",
+                        "  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {\n",
+                        "    responses.push(checkbox.value);\n",
+                        "  });\n",
+                        "  localStorage.setItem('reponses_q", i, "', JSON.stringify(responses));\n",
+                        "  alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');\n",
+                        "}\n",
                         "</script>\n"
   )
   

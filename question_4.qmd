@@ -2,6 +2,10 @@
 format: html
 ---
 
+<div style='text-align: left; margin-bottom: 20px;'>
+<button onclick="window.location.href='question_3.html'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;'>Précédent</button>
+</div>
+
 ## Avez-vous mis en place des outils de pilotage et de suivi des impacts environnementaux de vos activités, produits et services (ex: vos émissions de GES, vos consommations d'eau et d'énergie, votre impact sur la biodiversité...) ?
 
 ### Sélectionnez votre réponse :
@@ -13,8 +17,8 @@ format: html
 - [ ] Nous ne connaissons pas bien les impacts environnementaux de notre activité et nous n'avons aucun outil de pilotage, ni de suivi de ces derniers
 
 <br>
-<button id='precedent' onclick="window.location.href='question_3.html'" >⬅ Précédent</button>
-<button id='suivant' onclick="window.location.href='question_5.html'" >Suivant ➡</button>
+<button id='continuer' onclick='sauvegarderReponses()' style='background-color: #2c3771; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;'>📌 Continuer plus tard</button>
+<button onclick="window.location.href='question_5.html'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;' >Suivant</button>
 
 
 <script>
@@ -27,5 +31,15 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
   localStorage.setItem('reponses_q4', JSON.stringify(responses));
   alert('Réponse enregistrée !');
 });
+</script>
+<script>
+function sauvegarderReponses() {
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q4', JSON.stringify(responses));
+  alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');
+}
 </script>
 

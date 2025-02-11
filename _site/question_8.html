@@ -112,6 +112,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<div style="text-align: left; margin-bottom: 20px;">
+<button onclick="window.location.href='question_7.html'" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+Précédent
+</button>
+</div>
 <section id="intégrez-vous-des-critères-environnementaux-dans-votre-politique-dachat-par-exemple-via-des-certifications-ou-labels-environnementaux" class="level2">
 <h2 class="anchored" data-anchor-id="intégrez-vous-des-critères-environnementaux-dans-votre-politique-dachat-par-exemple-via-des-certifications-ou-labels-environnementaux">Intégrez-vous des critères environnementaux dans votre politique d’achat (par exemple via des certifications ou labels environnementaux) ?</h2>
 <section id="sélectionnez-votre-réponse" class="level3">
@@ -122,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><label><input type="checkbox">Non ce n’est pas pris en compte</label></p></li>
 <li><p><label><input type="checkbox">Non concerné</label></p></li>
 </ul>
-<p><br> <button id="precedent" onclick="window.location.href='question_7.html'">⬅ Précédent</button> <button id="suivant" onclick="window.location.href='question_9.html'">Suivant ➡</button></p>
+<p><br> <button id="continuer" onclick="sauvegarderReponses()" style="background-color: #2c3771; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;">📌 Continuer plus tard</button> <button onclick="window.location.href='question_9.html'" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Suivant</button></p>
 <script>
 document.getElementById('quiz-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -133,6 +138,16 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
   localStorage.setItem('reponses_q8', JSON.stringify(responses));
   alert('Réponse enregistrée !');
 });
+</script>
+<script>
+function sauvegarderReponses() {
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q8', JSON.stringify(responses));
+  alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');
+}
 </script>
 
 

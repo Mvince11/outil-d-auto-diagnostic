@@ -2,19 +2,24 @@
 format: html
 ---
 
+<div style='text-align: left; margin-bottom: 20px;'>
+</div>
+
 ## La réduction des impacts sur l'environnement et/ou votre politique RSE est-elle intégrée dans la stratégie de votre structure ?
 
 ### Sélectionnez votre réponse :
 
--   [ ] Oui elle est au coeur de notre projet
+- [ ] Oui elle est au coeur de notre projet
 
--   [ ] Oui mais c'est un enjeu mineur dans notre stratégie
+- [ ] Oui mais c'est un enjeu mineur dans notre stratégie
 
--   [ ] Non elle n'est pas intégrée dans notre stratégie
+- [ ] Non elle n'est pas intégrée dans notre stratégie
 
-<br> <button id='precedent' onclick="window.location.href='#'" disabled>⬅ Précédent</button> <button id='suivant' onclick="window.location.href='question_2.html'" >Suivant ➡</button>
+<br>
+<button id='continuer' onclick='sauvegarderReponses()' style='background-color: #2c3771; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;'>📌 Continuer plus tard</button>
+<button onclick="window.location.href='question_2.html'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;' >Suivant</button>
 
-```{=html}
+
 <script>
 document.getElementById('quiz-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -26,4 +31,14 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
   alert('Réponse enregistrée !');
 });
 </script>
-```
+<script>
+function sauvegarderReponses() {
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+  localStorage.setItem('reponses_q1', JSON.stringify(responses));
+  alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');
+}
+</script>
+

@@ -33,19 +33,56 @@ Email ou mot de passe incorrect.
 
 ```{=html}
 <script>
-  document.getElementById("login-form").addEventListener("submit", function(event) {
+  document.getElementById("login-form").addEventListener("submit", async function(event) {
     event.preventDefault();
-    
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
 
-    // Vérification simple (remplace ceci par un vrai système backend)
-    if (email === "test@example.com" && password === "password123") {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";
+    const tableName = "database_connexion_questionnaire";
+
+    const response = await fetch(`${supabaseUrl}/rest/v1/${tableName}?email=eq.${email}&password=eq.${password}`, {
+      method: "GET",
+      headers: {
+        apikey: supabaseKey,
+        Authorization: `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json",
+        Prefer: "return=representation"
+      }
+    });
+
+    const data = await response.json();
+    console.log("Réponse complète :", response);
+    console.log("Données retournées :", data);
+
+    if (data.length > 0) {
       alert("Connexion réussie !");
-      window.location.href = "index.html";  // Redirige vers la page d'accueil
+      window.location.href = "index.html";
     } else {
+      console.log("Aucun utilisateur trouvé !");
       document.getElementById("error-message").style.display = "block";
     }
   });
 </script>
 ```
+
+<!-- ```{=html} -->
+<!-- <script> -->
+<!--   document.getElementById("login-form").addEventListener("submit", function(event) { -->
+<!--     event.preventDefault(); -->
+
+<!--     var email = document.getElementById("email").value; -->
+<!--     var password = document.getElementById("password").value; -->
+
+<!--     // Vérification simple (remplace ceci par un vrai système backend) -->
+<!--     if (email === "test@example.com" && password === "password123") { -->
+<!--       alert("Connexion réussie !"); -->
+<!--       window.location.href = "index.html";  // Redirige vers la page d'accueil -->
+<!--     } else { -->
+<!--       document.getElementById("error-message").style.display = "block"; -->
+<!--     } -->
+<!--   }); -->
+<!-- </script> -->
+<!-- ``` -->

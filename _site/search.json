@@ -95,7 +95,7 @@
     "href": "login.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\nEmail ou mot de passe incorrect.\n\n\n\n\n\nInscription\n\n\nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\nCompte créé avec succès !\n\n\nErreur lors de la création du compte.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\n\nPas encore inscrit “?”\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "question_1.html",
@@ -166,5 +166,12 @@
     "title": "Outil d'auto-diagnostic",
     "section": "Intégrez-vous des critères environnementaux dans votre politique d’achat (par exemple via des certifications ou labels environnementaux) ?",
     "text": "Intégrez-vous des critères environnementaux dans votre politique d’achat (par exemple via des certifications ou labels environnementaux) ?\n\nSélectionnez votre réponse :\n\nOui systématiquement (par exemple via un cahier des charges avec des clauses sur l’environnement)\nOui mais de manière partielle\nNon ce n’est pas pris en compte\nNon concerné\n\n Continuer plus tard Suivant"
+  },
+  {
+    "objectID": "inscription.html",
+    "href": "inscription.html",
+    "title": "Outil d'auto-diagnostic",
+    "section": "",
+    "text": "Inscription\n\n\nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\nCompte créé avec succès !\n\n\nErreur lors de la création du compte.\n\n\n\n\n\n\n Back to top"
   }
 ]

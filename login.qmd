@@ -16,19 +16,27 @@ Se connecter
 
 <label for="password">Mot de passe :</label> <input type="password" id="password" name="password" required style="width: 100%; padding: 8px; margin-bottom: 10px;">
 
-<button type="submit" style="width: 100%; padding: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+<button type="submit" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
 
 Connexion
 
 </button>
 
+<hr></hr>
+
+<button type="submit" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+
+Pas encore inscrit ?
+
+</button>
+
 </form>
 
-<p id="error-message" style="color: red; text-align: center; display: none;">
+<!-- <p id="error-message" style="color: red; text-align: center; display: none;"> -->
 
-Email ou mot de passe incorrect.
+<!-- Email ou mot de passe incorrect. -->
 
-</p>
+<!-- </p> -->
 :::
 
 ```{=html}
@@ -68,63 +76,7 @@ Email ou mot de passe incorrect.
 </script>
 ```
 
-::: {style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;"}
 
-<h2 style="text-align: center;">Inscription</h2>
-
-<form id="signup-form">
-  <label for="signup-email">Email :</label>
-  <input type="email" id="signup-email" required style="width:100%; margin-bottom: 10px;">
-
-  <label for="signup-password">Mot de passe :</label>
-  <input type="password" id="signup-password" required style="width:100%; margin-bottom: 10px;">
-
-  <button type="submit" style="width:100%; background-color: #28a745; color: white; padding: 10px; border: none; border-radius: 4px;">
-    Créer un compte
-  </button>
-</form>
-
-<p id="signup-message" style="text-align:center; color: green; display:none;">Compte créé avec succès !</p>
-<p id="signup-error" style="text-align:center; color: red; display:none;">Erreur lors de la création du compte.</p>
-
-:::
-
-```{=html}
-<script>
-  const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta clé 'anon'
-
-  document.getElementById("signup-form").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const email = document.getElementById("signup-email").value;
-    const password = document.getElementById("signup-password").value;
-
-    // Appel API RESTful pour insérer un nouvel utilisateur
-    const response = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire`, {
-      method: "POST",
-      headers: {
-        "apikey": supabaseKey,
-        "Authorization": `Bearer ${supabaseKey}`,
-        "Content-Type": "application/json",
-        "Prefer": "return=representation"
-      },
-      body: JSON.stringify({ email: email, password: password })
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      document.getElementById("signup-message").style.display = "block";
-      document.getElementById("signup-error").style.display = "none";
-    } else {
-      console.error("Erreur:", result);
-      document.getElementById("signup-message").style.display = "none";
-      document.getElementById("signup-error").style.display = "block";
-    }
-  });
-</script>
-```
 
 <!-- ```{=html} -->
 <!-- <script> -->

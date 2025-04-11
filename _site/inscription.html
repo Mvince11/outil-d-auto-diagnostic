@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>login – Outil d'auto-diagnostic</title>
+<title>inscription – Outil d'auto-diagnostic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./login.html" aria-current="page"> 
+    <a class="nav-link" href="./login.html"> 
 <span class="menu-text"><button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Se connecter</button></span></a>
   </li>  
 </ul>
@@ -112,76 +112,58 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+<div style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
 <h2 style="text-align: center;" class="anchored">
-<p>Se connecter</p>
+Inscription
 </h2>
-<form id="login-form">
-<p><label for="email">Email :</label> <input type="email" id="email" name="email" required="" style="width: 100%; padding: 8px; margin-bottom: 10px;"></p>
-<p><label for="password">Mot de passe :</label> <input type="password" id="password" name="password" required="" style="width: 100%; padding: 8px; margin-bottom: 10px;"></p>
-<button type="submit" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
-<p>Connexion</p>
-</button>
-<hr>
-
-<button type="submit" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
-<p>Pas encore inscrit “?”</p>
+<form id="signup-form">
+<p><label for="signup-email">Email :</label> <input type="email" id="signup-email" required="" style="width:100%; margin-bottom: 10px;"></p>
+<p><label for="signup-password">Mot de passe :</label> <input type="password" id="signup-password" required="" style="width:100%; margin-bottom: 10px;"></p>
+<button type="submit" style="width:100%; background-color: #28a745; color: white; padding: 10px; border: none; border-radius: 4px;">
+Créer un compte
 </button>
 </form>
-<!-- <p id="error-message" style="color: red; text-align: center; display: none;"> -->
-<!-- Email ou mot de passe incorrect. -->
-<!-- </p> -->
+<p id="signup-message" style="text-align:center; color: green; display:none;">
+Compte créé avec succès !
+</p>
+<p id="signup-error" style="text-align:center; color: red; display:none;">
+Erreur lors de la création du compte.
+</p>
 </div>
 <script>
-  document.getElementById("login-form").addEventListener("submit", async function(event) {
+  const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta clé 'anon'
+
+  document.getElementById("signup-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
 
-    const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";
-    const tableName = "database_connexion_questionnaire";
-
-    const response = await fetch(`${supabaseUrl}/rest/v1/${tableName}?email=eq.${email}&password=eq.${password}`, {
-      method: "GET",
+    // Appel API RESTful pour insérer un nouvel utilisateur
+    const response = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire`, {
+      method: "POST",
       headers: {
-        apikey: supabaseKey,
-        Authorization: `Bearer ${supabaseKey}`,
+        "apikey": supabaseKey,
+        "Authorization": `Bearer ${supabaseKey}`,
         "Content-Type": "application/json",
-        Prefer: "return=representation"
-      }
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify({ email: email, password: password })
     });
 
-    const data = await response.json();
-    console.log("Réponse complète :", response);
-    console.log("Données retournées :", data);
+    const result = await response.json();
 
-    if (data.length > 0) {
-      alert("Connexion réussie !");
-      window.location.href = "index.html";
+    if (response.ok) {
+      document.getElementById("signup-message").style.display = "block";
+      document.getElementById("signup-error").style.display = "none";
     } else {
-      console.log("Aucun utilisateur trouvé !");
-      document.getElementById("error-message").style.display = "block";
+      console.error("Erreur:", result);
+      document.getElementById("signup-message").style.display = "none";
+      document.getElementById("signup-error").style.display = "block";
     }
   });
 </script>
-<!-- ```{=html} -->
-<!-- <script> -->
-<!--   document.getElementById("login-form").addEventListener("submit", function(event) { -->
-<!--     event.preventDefault(); -->
-<!--     var email = document.getElementById("email").value; -->
-<!--     var password = document.getElementById("password").value; -->
-<!--     // Vérification simple (remplace ceci par un vrai système backend) -->
-<!--     if (email === "test@example.com" && password === "password123") { -->
-<!--       alert("Connexion réussie !"); -->
-<!--       window.location.href = "index.html";  // Redirige vers la page d'accueil -->
-<!--     } else { -->
-<!--       document.getElementById("error-message").style.display = "block"; -->
-<!--     } -->
-<!--   }); -->
-<!-- </script> -->
-<!-- ``` -->
 
 
 

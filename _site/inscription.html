@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.38">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,33 +114,34 @@ ul.task-list li input[type="checkbox"] {
 
 <div style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
 <h2 style="text-align: center;" class="anchored">
-Inscription
+<p>Inscription</p>
 </h2>
 <form id="signup-form">
 <p><label for="signup-email">Email :</label> <input type="email" id="signup-email" required="" style="width:100%; margin-bottom: 10px;"></p>
 <p><label for="signup-password">Mot de passe :</label> <input type="password" id="signup-password" required="" style="width:100%; margin-bottom: 10px;"></p>
-<button type="submit" style="width:100%; background-color: #28a745; color: white; padding: 10px; border: none; border-radius: 4px;">
-Créer un compte
+<button type="submit" style="width:100%; background-color: #28a745; color: white; padding-top: 10px; border: none; border-radius: 4px;">
+<p>Créer un compte</p>
 </button>
 </form>
-<p id="signup-message" style="text-align:center; color: green; display:none;">
-Compte créé avec succès !
-</p>
-<p id="signup-error" style="text-align:center; color: red; display:none;">
-Erreur lors de la création du compte.
-</p>
+<div id="message-container" style="text-align: center; margin-top: 10px;">
+
+</div>
 </div>
 <script>
   const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta clé 'anon'
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta vraie clé
+
+  const messageContainer = document.getElementById("message-container");
 
   document.getElementById("signup-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const email = document.getElementById("signup-email").value;
-    const password = document.getElementById("signup-password").value;
+    const email = document.getElementById("signup-email").value.trim();
+    const password = document.getElementById("signup-password").value.trim();
 
-    // Appel API RESTful pour insérer un nouvel utilisateur
+    // Nettoyage des messages précédents
+    messageContainer.innerHTML = "";
+
     const response = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire`, {
       method: "POST",
       headers: {
@@ -149,21 +150,20 @@ Erreur lors de la création du compte.
         "Content-Type": "application/json",
         "Prefer": "return=representation"
       },
-      body: JSON.stringify({ email: email, password: password })
+      body: JSON.stringify({ email, password })
     });
 
     const result = await response.json();
 
     if (response.ok) {
-      document.getElementById("signup-message").style.display = "block";
-      document.getElementById("signup-error").style.display = "none";
+      messageContainer.innerHTML = `<p style="color: green;">Compte créé avec succès !</p>`;
     } else {
       console.error("Erreur:", result);
-      document.getElementById("signup-message").style.display = "none";
-      document.getElementById("signup-error").style.display = "block";
+      messageContainer.innerHTML = `<p style="color: red;">Erreur lors de la création du compte.</p>`;
     }
   });
 </script>
+
 
 
 

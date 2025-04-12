@@ -22,9 +22,11 @@ Connexion
 
 </button>
 
-<hr></hr>
+<hr>
 
-<button type="submit" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+</hr>
+
+<button type="submit" id="signup-redirect" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
 
 Pas encore inscrit ?
 
@@ -73,26 +75,42 @@ Pas encore inscrit ?
       document.getElementById("error-message").style.display = "block";
     }
   });
+  
+  // Redirection vers la page d'inscription
+  document.getElementById("signup-redirect").addEventListener("click", function() {
+    window.location.href = "inscription.html";  // Remplace si besoin
+  });
 </script>
 ```
 
-
-
 <!-- ```{=html} -->
+
 <!-- <script> -->
+
 <!--   document.getElementById("login-form").addEventListener("submit", function(event) { -->
+
 <!--     event.preventDefault(); -->
 
 <!--     var email = document.getElementById("email").value; -->
+
 <!--     var password = document.getElementById("password").value; -->
 
 <!--     // Vérification simple (remplace ceci par un vrai système backend) -->
+
 <!--     if (email === "test@example.com" && password === "password123") { -->
+
 <!--       alert("Connexion réussie !"); -->
+
 <!--       window.location.href = "index.html";  // Redirige vers la page d'accueil -->
+
 <!--     } else { -->
+
 <!--       document.getElementById("error-message").style.display = "block"; -->
+
 <!--     } -->
+
 <!--   }); -->
+
 <!-- </script> -->
+
 <!-- ``` -->

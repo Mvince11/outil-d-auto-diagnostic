@@ -3,38 +3,46 @@ title: ""
 ---
 
 ::: {style="max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;"}
+<h2 style="text-align: center;">
 
-<h2 style="text-align: center;">Inscription</h2>
+Inscription
+
+</h2>
 
 <form id="signup-form">
-  <label for="signup-email">Email :</label>
-  <input type="email" id="signup-email" required style="width:100%; margin-bottom: 10px;">
 
-  <label for="signup-password">Mot de passe :</label>
-  <input type="password" id="signup-password" required style="width:100%; margin-bottom: 10px;">
+<label for="signup-email">Email :</label> <input type="email" id="signup-email" required style="width:100%; margin-bottom: 10px;">
 
-  <button type="submit" style="width:100%; background-color: #28a745; color: white; padding: 10px; border: none; border-radius: 4px;">
-    Créer un compte
-  </button>
+<label for="signup-password">Mot de passe :</label> <input type="password" id="signup-password" required style="width:100%; margin-bottom: 10px;">
+
+<button type="submit" style="width:100%; background-color: #28a745; color: white; padding-top: 10px; border: none; border-radius: 4px;">
+
+Créer un compte
+
+</button>
+
 </form>
 
-<p id="signup-message" style="text-align:center; color: green; display:none;">Compte créé avec succès !</p>
-<p id="signup-error" style="text-align:center; color: red; display:none;">Erreur lors de la création du compte.</p>
+<div id="message-container" style="text-align: center; margin-top: 10px;"></div>
 
 :::
 
 ```{=html}
 <script>
   const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta clé 'anon'
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta vraie clé
+
+  const messageContainer = document.getElementById("message-container");
 
   document.getElementById("signup-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const email = document.getElementById("signup-email").value;
-    const password = document.getElementById("signup-password").value;
+    const email = document.getElementById("signup-email").value.trim();
+    const password = document.getElementById("signup-password").value.trim();
 
-    // Appel API RESTful pour insérer un nouvel utilisateur
+    // Nettoyage des messages précédents
+    messageContainer.innerHTML = "";
+
     const response = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire`, {
       method: "POST",
       headers: {
@@ -43,19 +51,18 @@ title: ""
         "Content-Type": "application/json",
         "Prefer": "return=representation"
       },
-      body: JSON.stringify({ email: email, password: password })
+      body: JSON.stringify({ email, password })
     });
 
     const result = await response.json();
 
     if (response.ok) {
-      document.getElementById("signup-message").style.display = "block";
-      document.getElementById("signup-error").style.display = "none";
+      messageContainer.innerHTML = `<p style="color: green;">Compte créé avec succès !</p>`;
     } else {
       console.error("Erreur:", result);
-      document.getElementById("signup-message").style.display = "none";
-      document.getElementById("signup-error").style.display = "block";
+      messageContainer.innerHTML = `<p style="color: red;">Erreur lors de la création du compte.</p>`;
     }
   });
 </script>
+
 ```

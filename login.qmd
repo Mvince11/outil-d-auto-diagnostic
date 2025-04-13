@@ -93,8 +93,8 @@ Pas encore inscrit ?
   document.getElementById("signup-redirect").addEventListener("click", function () {
     window.location.href = "inscription.html";
   });
-</script>
 
+</script>
 ```
 
 <!-- ```{=html} -->

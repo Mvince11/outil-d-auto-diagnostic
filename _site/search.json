@@ -95,7 +95,7 @@
     "href": "login.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\n\nPas encore inscrit ?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\n\nPas encore inscrit ?\n\n\n\nEmail ou mot de passe incorrect.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "question_1.html",
@@ -172,6 +172,6 @@
     "href": "inscription.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Inscription\n\n\nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Inscription\n\n\nNom : \nPrénom : \nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\n\n\n\n\n\n\n\n Back to top"
   }
 ]

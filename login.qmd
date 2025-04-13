@@ -26,7 +26,7 @@ Connexion
 
 </hr>
 
-<button type="submit" id="signup-redirect" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+<button type="button" id="signup-redirect" style="width: 100%; padding-top: 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
 
 Pas encore inscrit ?
 
@@ -34,17 +34,31 @@ Pas encore inscrit ?
 
 </form>
 
-<!-- <p id="error-message" style="color: red; text-align: center; display: none;"> -->
+<p id="error-message" class="hidden-error">
+  Email ou mot de passe incorrect.
+</p>
 
-<!-- Email ou mot de passe incorrect. -->
-
-<!-- </p> -->
+<style>
+  .hidden-error {
+    display: none;
+    color: red;
+    text-align: center;
+  }
+</style>
 :::
 
 ```{=html}
 <script>
-  document.getElementById("login-form").addEventListener("submit", async function(event) {
+  // Masquer le message dès que la page est prête
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("error-message").style.display = "none";
+  });
+
+  document.getElementById("login-form").addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    // Toujours cacher avant un nouvel essai
+    document.getElementById("error-message").style.display = "none";
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -64,23 +78,23 @@ Pas encore inscrit ?
     });
 
     const data = await response.json();
-    console.log("Réponse complète :", response);
     console.log("Données retournées :", data);
 
     if (data.length > 0) {
       alert("Connexion réussie !");
-      window.location.href = "index.html";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 500);
     } else {
-      console.log("Aucun utilisateur trouvé !");
       document.getElementById("error-message").style.display = "block";
     }
   });
-  
-  // Redirection vers la page d'inscription
-  document.getElementById("signup-redirect").addEventListener("click", function() {
-    window.location.href = "inscription.html";  // Remplace si besoin
+
+  document.getElementById("signup-redirect").addEventListener("click", function () {
+    window.location.href = "inscription.html";
   });
 </script>
+
 ```
 
 <!-- ```{=html} -->

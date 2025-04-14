@@ -81,6 +81,15 @@ Pas encore inscrit ?
     console.log("Données retournées :", data);
 
     if (data.length > 0) {
+      // Récupération prénom/nom et stockage des initiales
+      const utilisateur = data[0];
+      const prenom = utilisateur.prenom || "";
+      const nom = utilisateur.nom || "";
+      const initiales = (prenom[0] || "").toUpperCase() + (nom[0] || "").toUpperCase();
+
+      // Stocker dans le localStorage
+      localStorage.setItem("initiales", initiales);
+
       alert("Connexion réussie !");
       setTimeout(() => {
         window.location.href = "index.html";
@@ -93,8 +102,8 @@ Pas encore inscrit ?
   document.getElementById("signup-redirect").addEventListener("click", function () {
     window.location.href = "inscription.html";
   });
-
 </script>
+
 ```
 
 <!-- ```{=html} -->

@@ -116,6 +116,13 @@ label{
   cursor: pointer;
 }
 
+#logout-menu {
+  z-index: 9999 !important;
+}
+
+.navbar, .quarto-navbar {
+  overflow: visible !important;
+}
 
 
 

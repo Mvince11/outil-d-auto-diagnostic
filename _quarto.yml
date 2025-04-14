@@ -13,10 +13,11 @@ website:
       #   text: Accueil
       #   icon: house
       # - about.qmd
-    right:
-        - text: "<button style='padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;'>Se connecter</button>"
+    right: []
+        - text: "<button id='login-button' style='padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;'>Se connecter</button>"
           href: login.html  # Remplace par l'URL de connexion
-        
+        - text: "<button id='logout-menu' style='display: none; padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;'>Se connecter</button>"
+          href: login.html
       
   page-footer:
     left: "Site créé avec [Quarto](https://quarto.org/)"
@@ -31,6 +32,7 @@ website:
 
 format:
   html:
+    #include-after-body: assets/navbar.js
     theme: cosmo
     css: styles.css
     #toc: true

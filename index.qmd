@@ -53,4 +53,16 @@ format: html
     </button>
   </a>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const initiales = localStorage.getItem("initiales");
+    if (initiales) {
+      const btn = document.getElementById("login-button");
+      if (btn) {
+        btn.textContent = initiales;
+      }
+    }
+  });
+</script>
 ```

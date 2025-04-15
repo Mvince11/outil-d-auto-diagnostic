@@ -1,0 +1,82 @@
+```{=html}
+  document.addEventListener("DOMContentLoaded", function () {
+  const userPlaceholder = document.getElementById("navbar-user-placeholder");
+
+  // Vérifie s'il y a un prénom/nom dans le localStorage
+  const firstName = localStorage.getItem("firstName");
+  const lastName = localStorage.getItem("lastName");
+
+  if (firstName && lastName) {
+    const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();
+
+    userPlaceholder.innerHTML = `
+      <div style="position: relative; display: inline-block;">
+        <button id="user-initials" style="
+          background-color: #007BFF;
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          font-weight: bold;
+        ">
+          ${initials}
+        </button>
+        <div id="logout-menu" style="
+          display: none;
+          position: absolute;
+          top: 110%;
+          right: 0;
+          background: white;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          z-index: 1000;
+        ">
+          <button id="logout-button" style="
+            padding: 8px 12px;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+          ">Déconnexion</button>
+        </div>
+      </div>
+    `;
+
+    const userButton = document.getElementById("user-initials");
+    const logoutMenu = document.getElementById("logout-menu");
+    const logoutButton = document.getElementById("logout-button");
+
+    userButton.addEventListener("mouseenter", () => {
+      logoutMenu.style.display = "block";
+    });
+
+    userButton.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        logoutMenu.style.display = "none";
+      }, 1000);
+    });
+
+    logoutMenu.addEventListener("mouseleave", () => {
+      logoutMenu.style.display = "none";
+    });
+
+    logoutButton.addEventListener("click", () => {
+      localStorage.removeItem("firstName");
+      localStorage.removeItem("lastName");
+      location.reload(); // recharge la page
+    });
+  } else {
+    userPlaceholder.innerHTML = `
+      <a href="login.html">
+        <button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Se connecter
+        </button>
+      </a>
+    `;
+  }
+});
+```

@@ -81,7 +81,7 @@
     "href": "inscription.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Inscription\n\n\nNom : \nPrénom : \nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Inscription\n\n\nNom : \nPrénom : \nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -95,14 +95,14 @@
     "href": "index.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Comment fonctionne l'outil d'auto-diagnostic ?\n\n  \n    \n      \n      Vous faîtes le point sur votre action pour la transition écologique\n      \n      En une soixantaine de questions  évaluez la maturité de votre entreprise \n    \n  \n    \n      \n      Vous obtenez un rapport détaillé\n      \n      Le positionnement de votre entreprise en 6 thématiques en fonction de vos réponses\n    \n\n    \n      \n      Vous accédez à des ressources pour aller plus loin\n      \n      Les partenaires de la démarche mettent à votre disposition toutes leurs expertises pour passer à l'action\n    \n  \n\n\n\n  \n    \n      Je me connecte\n    \n  \n\n\n\n  \n    \n      À propos\n    \n  \n\n  \n    \n      Accueil\n    \n  \n\n\n\n\n\n\n Back to top"
+    "text": "Comment fonctionne l'outil d'auto-diagnostic ?\n\n  \n    \n      \n      Vous faîtes le point sur votre action pour la transition écologique\n      \n      En une soixantaine de questions  évaluez la maturité de votre entreprise \n    \n  \n    \n      \n      Vous obtenez un rapport détaillé\n      \n      Le positionnement de votre entreprise en 6 thématiques en fonction de vos réponses\n    \n\n    \n      \n      Vous accédez à des ressources pour aller plus loin\n      \n      Les partenaires de la démarche mettent à votre disposition toutes leurs expertises pour passer à l'action\n    \n  \n\n\n\n  \n    Je me connecte\n  \n\n\n\n  \n    \n      À propos\n    \n  \n\n  \n    \n      Accueil\n    \n  \n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "login.html",
     "href": "login.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\n\nPas encore inscrit ?\n\n\n\nEmail ou mot de passe incorrect.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\n\nPas encore inscrit ?\n\n\n\nEmail ou mot de passe incorrect.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "question_1.html",
@@ -173,5 +173,19 @@
     "title": "Outil d'auto-diagnostic",
     "section": "Intégrez-vous des critères environnementaux dans votre politique d’achat (par exemple via des certifications ou labels environnementaux) ?",
     "text": "Intégrez-vous des critères environnementaux dans votre politique d’achat (par exemple via des certifications ou labels environnementaux) ?\n\nSélectionnez votre réponse :\n\nOui systématiquement (par exemple via un cahier des charges avec des clauses sur l’environnement)\nOui mais de manière partielle\nNon ce n’est pas pris en compte\nNon concerné\n\n Continuer plus tard Suivant"
+  },
+  {
+    "objectID": "navbar.html",
+    "href": "navbar.html",
+    "title": "Outil d'auto-diagnostic",
+    "section": "",
+    "text": "document.addEventListener(\"DOMContentLoaded\", function () {\n  const userPlaceholder = document.getElementById(\"navbar-user-placeholder\");\n\n  // Vérifie s'il y a un prénom/nom dans le localStorage\n  const firstName = localStorage.getItem(\"firstName\");\n  const lastName = localStorage.getItem(\"lastName\");\n\n  if (firstName && lastName) {\n    const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();\n\n    userPlaceholder.innerHTML = `\n      \n        \n          ${initials}\n        \n        \n          Déconnexion\n        \n      \n    `;\n\n    const userButton = document.getElementById(\"user-initials\");\n    const logoutMenu = document.getElementById(\"logout-menu\");\n    const logoutButton = document.getElementById(\"logout-button\");\n\n    userButton.addEventListener(\"mouseenter\", () =&gt; {\n      logoutMenu.style.display = \"block\";\n    });\n\n    userButton.addEventListener(\"mouseleave\", () =&gt; {\n      setTimeout(() =&gt; {\n        logoutMenu.style.display = \"none\";\n      }, 1000);\n    });\n\n    logoutMenu.addEventListener(\"mouseleave\", () =&gt; {\n      logoutMenu.style.display = \"none\";\n    });\n\n    logoutButton.addEventListener(\"click\", () =&gt; {\n      localStorage.removeItem(\"firstName\");\n      localStorage.removeItem(\"lastName\");\n      location.reload(); // recharge la page\n    });\n  } else {\n    userPlaceholder.innerHTML = `\n      \n        \n          Se connecter\n        \n      \n    `;\n  }\n});\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "assets/navbar.html",
+    "href": "assets/navbar.html",
+    "title": "Outil d'auto-diagnostic",
+    "section": "",
+    "text": "Back to top"
   }
 ]

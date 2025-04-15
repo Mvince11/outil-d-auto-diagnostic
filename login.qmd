@@ -49,6 +49,7 @@ Pas encore inscrit ?
 
 ```{=html}
 <script>
+
   // Masquer le message dès que la page est prête
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("error-message").style.display = "none";
@@ -103,7 +104,6 @@ Pas encore inscrit ?
     window.location.href = "inscription.html";
   });
 </script>
-
 ```
 
 <!-- ```{=html} -->

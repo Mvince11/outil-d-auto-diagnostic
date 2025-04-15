@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.38">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,6 +66,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="assets/navbar.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -91,12 +92,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./login.html"> 
-<span class="menu-text"><button id="login-button" style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Se connecter</button></span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./login.html"> 
-<span class="menu-text"><button id="logout-menu" style="display: none; padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Se connecter</button></span></a>
+    <a class="nav-link" href="./#"> 
+<span class="menu-text">utilisateur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -133,24 +130,41 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 </div>
+<script src="assets/supabase-config.js"></script>
+
 <script>
-  const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta vraie clé
+  
 
   const messageContainer = document.getElementById("message-container");
 
   document.getElementById("signup-form").addEventListener("submit", async function (event) {
     event.preventDefault();
-    
-    
+
     const nom = document.getElementById("signup-nom").value.trim();
     const prenom = document.getElementById("signup-prenom").value.trim();
     const email = document.getElementById("signup-email").value.trim();
     const password = document.getElementById("signup-password").value.trim();
 
-    // Nettoyage des messages précédents
     messageContainer.innerHTML = "";
 
+    // Vérifier si l'utilisateur existe déjà
+    const checkResponse = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire?email=eq.${email}`, {
+      method: "GET",
+      headers: {
+        "apikey": supabaseKey,
+        "Authorization": `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json"
+      }
+    });
+
+    const existingUsers = await checkResponse.json();
+
+    if (existingUsers.length > 0) {
+      messageContainer.innerHTML = `<p style="color: red;">Un compte avec cet email existe déjà.</p>`;
+      return;
+    }
+
+    // Sinon, créer l'utilisateur
     const response = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire`, {
       method: "POST",
       headers: {
@@ -159,13 +173,17 @@ ul.task-list li input[type="checkbox"] {
         "Content-Type": "application/json",
         "Prefer": "return=representation"
       },
-      body: JSON.stringify({nom, prenom, email, password })
+      body: JSON.stringify({ nom, prenom, email, password })
     });
 
     const result = await response.json();
 
     if (response.ok) {
       messageContainer.innerHTML = `<p style="color: green;">Compte créé avec succès !</p>`;
+      // Connexion automatique (facultatif)
+      localStorage.setItem("firstName", prenom);
+      localStorage.setItem("lastName", nom);
+      window.location.href = "index.html"; // redirection après inscription
     } else {
       console.error("Erreur:", result);
       messageContainer.innerHTML = `<p style="color: red;">Erreur lors de la création du compte.</p>`;

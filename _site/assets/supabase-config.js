@@ -1,0 +1,2 @@
+window.supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
+window.supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";

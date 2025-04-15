@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.38">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,6 +66,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="assets/navbar.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -90,6 +91,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./#"> 
+<span class="menu-text">utilisateur</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -136,6 +141,7 @@ Email ou mot de passe incorrect.
 </style>
 </div>
 <script>
+
   // Masquer le message dès que la page est prête
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("error-message").style.display = "none";
@@ -190,7 +196,6 @@ Email ou mot de passe incorrect.
     window.location.href = "inscription.html";
   });
 </script>
-
 <!-- ```{=html} -->
 <!-- <script> -->
 <!--   document.getElementById("login-form").addEventListener("submit", function(event) { -->
@@ -211,90 +216,6 @@ Email ou mot de passe incorrect.
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-document.addEventListener("DOMContentLoaded", function () {
-
-  const user = JSON.parse(localStorage.getItem("user")) || null;
-
-  const loginButton = document.getElementById("login-button");
-
-  const logoutMenu = document.getElementById("logout-menu");
-
-  const logoutButton = document.getElementById("logout-button");
-
-  const userContainer = document.getElementById("user-container");
-
-
-
-  if (!loginButton || !logoutMenu || !logoutButton || !userContainer) return;
-
-
-
-  if (user &amp;&amp; user.prenom &amp;&amp; user.nom) {
-
-    const initials = user.prenom.charAt(0).toUpperCase() + user.nom.charAt(0).toUpperCase();
-
-    loginButton.textContent = initials;
-
-
-
-    // Ajout du style rond
-
-    loginButton.style.borderRadius = "50%";
-
-    loginButton.style.width = "40px";
-
-    loginButton.style.height = "40px";
-
-    loginButton.style.padding = "0";
-
-    loginButton.style.textAlign = "center";
-
-    loginButton.style.fontWeight = "bold";
-
-
-
-    // Survol pour afficher déconnexion
-
-    userContainer.addEventListener("mouseenter", () =&gt; {
-
-      logoutMenu.style.display = "block";
-
-    });
-
-
-
-    userContainer.addEventListener("mouseleave", () =&gt; {
-
-      logoutMenu.style.display = "none";
-
-    });
-
-
-
-    logoutButton.addEventListener("click", () =&gt; {
-
-      localStorage.removeItem("user");
-
-      window.location.href = "login.html";
-
-    });
-
-  } else {
-
-    loginButton.textContent = "Se connecter";
-
-    loginButton.style.borderRadius = "5px"; // bouton classique
-
-    loginButton.addEventListener("click", () =&gt; {
-
-      window.location.href = "login.html";
-
-    });
-
-  }
-
-});
-
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

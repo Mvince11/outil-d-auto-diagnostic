@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Outil d’auto-diagnostic</title>
+<title>navbar – Outil d'auto-diagnostic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,10 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="assets/navbar.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -79,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title"><a href="https://cc-hautpoitou.fr/" target="_blank"><img class="navbar-logo" src="images/logos/Cc-du-haut-poitou-logo.png" height="150px"></a></span>
     </a>
   </div>
@@ -92,8 +91,12 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./#"> 
-<span class="menu-text">utilisateur</span></a>
+    <a class="nav-link" href="../login.html"> 
+<span class="menu-text"><button id="login-button" style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;"> Se connecter </button></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../#"> 
+<span class="menu-text"><button id="logout-menu" style="display: none; padding: 8px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;"> Déconnexion </button></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -113,63 +116,34 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="bloc_principal">
-  <h3 class="anchored">Comment fonctionne l'outil d'auto-diagnostic ?</h3>
-
-  <div class="bloc_container">
-    <div class="blocs_communs">
-      <img src="images/banc_arbre.png">
-      <p>Vous faîtes le point sur votre action pour la transition écologique</p>
-      <hr class="custom-hr">
-      <p class="description" style="font-size:0.8em; color:gray;">En une soixantaine de questions <br> évaluez la maturité de votre entreprise</p> 
-    </div>
-  
-    <div class="blocs_communs">
-      <img src="images/livre.png">
-      <p>Vous obtenez un rapport détaillé</p>
-      <hr class="custom-hr">
-      <p class="description" style="font-size:0.8em; color:gray;">Le positionnement de votre entreprise en 6 thématiques en fonction de vos réponses</p>
-    </div>
-
-    <div class="blocs_communs">
-      <img src="images/citoyens.png">
-      <p>Vous accédez à des ressources pour aller plus loin</p>
-      <hr class="custom-hr">
-      <p class="description" style="font-size:0.8em; color:gray;">Les partenaires de la démarche mettent à votre disposition toutes leurs expertises pour passer à l'action</p>
-    </div>
-  </div>
-</div>
-
-<div style="text-align: center; margin-top: 20px;">
-  <button id="start-button" style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Je me connecte
-  </button>
-</div>
-
-<div style="text-align: center; margin-top: 20px;">
-  <a href="about.html">
-    <button style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
-      À propos
-    </button>
-  </a>
-
-  <a href="index.html">
-    <button style="padding: 10px 20px; font-size: 16px; background-color: #28A745; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">
-      Accueil
-    </button>
-  </a>
-</div>
-
 <script>
-  document.getElementById("start-button").addEventListener("click", function () {
-    const initiales = localStorage.getItem("initiales");
-    if (initiales) {
-      window.location.href = "question_1.html";
-    } else {
-      alert("Veuillez vous connecter pour accéder au questionnaire.");
-      window.location.href = "login.html";
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const loginButton = document.getElementById("login-button");
+  const logoutButton = document.getElementById("logout-menu");
+  
+  const firstName = localStorage.getItem("firstName");
+  const lastName = localStorage.getItem("lastName");
+  
+  if (firstName && lastName) {
+    const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();
+    
+    loginButton.innerHTML = initials;
+    loginButton.style.borderRadius = "50%";
+    loginButton.style.width = "40px";
+    loginButton.style.height = "40px";
+    loginButton.style.padding = "0";
+    loginButton.style.fontWeight = "bold";
+    
+    logoutButton.style.display = "inline-block";
+    logoutButton.innerText = "Se déconnecter";
+    logoutButton.addEventListener("click", () => {
+      localStorage.clear();
+      window.location.reload();
+    });
+  } else {
+    logoutButton.style.display = "none";
+  }
+});
 </script>
 
 

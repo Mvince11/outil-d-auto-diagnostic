@@ -4,7 +4,6 @@ format: html
 ---
 
 ```{=html}
-
 <div class="bloc_principal">
   <h3>Comment fonctionne l'outil d'auto-diagnostic ?</h3>
 
@@ -33,11 +32,9 @@ format: html
 </div>
 
 <div style="text-align: center; margin-top: 20px;">
-  <a href="question_1.html">
-    <button style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
-      Je me connecte
-    </button>
-  </a>
+  <button id="start-button" style="padding: 10px 20px; font-size: 16px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Je me connecte
+  </button>
 </div>
 
 <div style="text-align: center; margin-top: 20px;">
@@ -55,13 +52,13 @@ format: html
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("start-button").addEventListener("click", function () {
     const initiales = localStorage.getItem("initiales");
     if (initiales) {
-      const btn = document.getElementById("login-button");
-      if (btn) {
-        btn.textContent = initiales;
-      }
+      window.location.href = "question_1.html";
+    } else {
+      alert("Veuillez vous connecter pour accéder au questionnaire.");
+      window.location.href = "login.html";
     }
   });
 </script>

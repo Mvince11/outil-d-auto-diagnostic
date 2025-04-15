@@ -32,24 +32,41 @@ Créer un compte
 ::::
 
 ```{=html}
+<script src="assets/supabase-config.js"></script>
+
 <script>
-  const supabaseUrl = "https://xyumeteavzfarpcbedqh.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5dW1ldGVhdnpmYXJwY2JlZHFoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1OTAzNTUsImV4cCI6MjA1OTE2NjM1NX0.tuKfWfR-z6fye-Jr37Hp9pKfYVb9qX59j3jusnMKsZw";  // Mets ici ta vraie clé
+  
 
   const messageContainer = document.getElementById("message-container");
 
   document.getElementById("signup-form").addEventListener("submit", async function (event) {
     event.preventDefault();
-    
-    
+
     const nom = document.getElementById("signup-nom").value.trim();
     const prenom = document.getElementById("signup-prenom").value.trim();
     const email = document.getElementById("signup-email").value.trim();
     const password = document.getElementById("signup-password").value.trim();
 
-    // Nettoyage des messages précédents
     messageContainer.innerHTML = "";
 
+    // Vérifier si l'utilisateur existe déjà
+    const checkResponse = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire?email=eq.${email}`, {
+      method: "GET",
+      headers: {
+        "apikey": supabaseKey,
+        "Authorization": `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json"
+      }
+    });
+
+    const existingUsers = await checkResponse.json();
+
+    if (existingUsers.length > 0) {
+      messageContainer.innerHTML = `<p style="color: red;">Un compte avec cet email existe déjà.</p>`;
+      return;
+    }
+
+    // Sinon, créer l'utilisateur
     const response = await fetch(`${supabaseUrl}/rest/v1/database_connexion_questionnaire`, {
       method: "POST",
       headers: {
@@ -58,13 +75,17 @@ Créer un compte
         "Content-Type": "application/json",
         "Prefer": "return=representation"
       },
-      body: JSON.stringify({nom, prenom, email, password })
+      body: JSON.stringify({ nom, prenom, email, password })
     });
 
     const result = await response.json();
 
     if (response.ok) {
       messageContainer.innerHTML = `<p style="color: green;">Compte créé avec succès !</p>`;
+      // Connexion automatique (facultatif)
+      localStorage.setItem("firstName", prenom);
+      localStorage.setItem("lastName", nom);
+      window.location.href = "index.html"; // redirection après inscription
     } else {
       console.error("Erreur:", result);
       messageContainer.innerHTML = `<p style="color: red;">Erreur lors de la création du compte.</p>`;

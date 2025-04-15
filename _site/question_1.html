@@ -136,26 +136,29 @@ ul.task-list li input[type="checkbox"] {
 <li><p><label><input type="checkbox">Oui mais c’est un enjeu mineur dans notre stratégie</label></p></li>
 <li><p><label><input type="checkbox">Non elle n’est pas intégrée dans notre stratégie</label></p></li>
 </ul>
-<p><br> <button id="continuer" onclick="sauvegarderReponses()" style="color: #932020; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;">Continuer plus tard</button> <button onclick="window.location.href='question_2.html'" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Suivant</button></p>
+<p><br></p>
+<div style="display: flex; margin-top: 20px;">
+<p><button id="continuer" onclick="sauvegarderReponses()" style="color: #932020; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"> Continuer plus tard </button></p>
+<p><button onclick="window.location.href='question_2.html'" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"> Suivant </button></p>
+</div>
 <script src="assets/supabase-questionnaire-config.js"></script>
 
 <script>
-  async function sauvegarderReponses() {
+  async function sauvegarderReponses(questionNum, redirectUrl) {
     let responses = [];
     document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
       responses.push(checkbox.value);
     });
 
     const email = localStorage.getItem('email');
-
     if (!email) {
-      alert("Utilisateur non connecté.");
+      alert("❌ Vous devez être connecté pour enregistrer vos réponses.");
       return;
     }
 
     const payload = {
       email: email,
-      question_num: 1,
+      question_num: questionNum,
       reponse: responses.join("; "),
       data_reponse: JSON.stringify(responses)
     };
@@ -175,15 +178,15 @@ ul.task-list li input[type="checkbox"] {
       const result = await response.json();
 
       if (response.ok) {
-        alert("✔ Réponses enregistrées !");
-        window.location.href = 'index.html';
+        console.log("✅ Réponses enregistrées :", result);
+        window.location.href = redirectUrl;
       } else {
-        console.error("Erreur d'enregistrement :", result);
-        alert("❌ Erreur lors de l'enregistrement.");
+        console.error("❌ Erreur API Supabase :", result);
+        alert("Erreur lors de l'enregistrement.");
       }
     } catch (error) {
-      console.error("Erreur JS :", error);
-      alert("❌ Une erreur est survenue.");
+      console.error("❌ Erreur JS :", error);
+      alert("Une erreur est survenue.");
     }
   }
 </script>

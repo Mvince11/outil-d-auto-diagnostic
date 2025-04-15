@@ -85,6 +85,7 @@ Créer un compte
       // Connexion automatique (facultatif)
       localStorage.setItem("firstName", prenom);
       localStorage.setItem("lastName", nom);
+      localStorage.setItem('email', email);
       window.location.href = "index.html"; // redirection après inscription
     } else {
       console.error("Erreur:", result);

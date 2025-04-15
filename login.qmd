@@ -90,6 +90,7 @@ Pas encore inscrit ?
 
       // Stocker dans le localStorage
       localStorage.setItem("initiales", initiales);
+      localStorage.setItem("email", email);
 
       alert("Connexion réussie !");
       setTimeout(() => {

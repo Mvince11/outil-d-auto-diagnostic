@@ -183,6 +183,7 @@ ul.task-list li input[type="checkbox"] {
       // Connexion automatique (facultatif)
       localStorage.setItem("firstName", prenom);
       localStorage.setItem("lastName", nom);
+      localStorage.setItem('email', email);
       window.location.href = "index.html"; // redirection après inscription
     } else {
       console.error("Erreur:", result);

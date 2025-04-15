@@ -77,18 +77,11 @@
     "text": "Pilotage RSE et stratégie bas carbone\nQ1 / La réduction des impacts sur l'environnement et/ou votre politique RSE est-elle intégrée dans la stratégie de votre structure ? Oui elle est au coeur de notre projet Oui mais c'est un enjeu mineur dans notre stratégie Non elle n'est pas intégrée dans notre stratégieQ2 / Une (ou plusieurs) personne au sein de votre structure est-elle \"référente/pilote\" sur le suivi des impacts environnementaux de votre activité ? Oui une personne (ou plusieurs) est chargée, à temps plein, de suivre nos impacts environnementaux (indiquez le nom de la (ou les) personne et son niveau de responsabilité) Oui, une personne est en charge de suivre nos impacts environnementaux mais cela ne représente qu'une petite partie de ses missions (indiquez le nom de la personne et son niveau de responsabilité) NonQ3 / Avez-vous défini des objectifs chiffrés relatifs à votre politique environnementale et/ou RSE ? Oui En cours NonQ4 / Avez-vous mis en place des outils de pilotage et de suivi des impacts environnementaux de vos activités, produits et services (ex: vos émissions de GES, vos consommations d'eau et d'énergie, votre impact sur la biodiversité...) ? Oui nous avons mis en place une démarche rigoureuse de suivi et réduction de nos différents impacts environnementaux (diagnostics, tableaux de bord, indicateurs, etc.) Nous connaissons nos principaux impacts environnementaux mais nous n'avons pas mis en place de suivi précis, ni régulier de ces derniers (diagnostic réalisé mais pas d'outils de suivi précis dans la durée) Nous ne connaissons pas bien les impacts environnementaux de notre activité et nous n'avons aucun outil de pilotage, ni de suivi de ces derniersQ5 / Votre structure fait-elle l'objet d'une (ou plusieurs) certification et/ou labellisation en lien avec les enjeux environnementaux et/ou de politique RSE ? Oui NonQ6 / Réalisez-vous une veille sur l'évolution de la réglementation environnementale liée à vos activités ? Oui nous avons mis en place une veille rigoureuse en interne sur la réglementation environnementale Oui nous nous appuyons sur un dispositif externalisé de veille (prestation, abonnement, etc.) Nous suivons l'évolution de la réglementation environnementale mais de manière partielle et lacunaire NonQ7 / Sensibilisez-vous vos collaborateurs sur les enjeux de réduction des impacts environnementaux (démarche RSE, impact carbone, tri des déchets, éco-gestes, etc.) ? Nous sensibilisons régulièrement nos collaborateurs (campagnes de communication interne, formations, etc.) et nos collaborateurs s'impliquent fortement et sont \"force de proposition\" sur ces enjeux Nous sensibilisons régulièrement nos collaborateurs (campagnes de communication interne, formations, etc.), sans qu'ils jouent cependant un rôle moteur en interne sur ces enjeux Nos collaborateurs ne sont pas impliqués en interne, ni sensibilisés sur le sujet Non concerné, nous n’avons pas de collaborateursQ8 / Intégrez-vous des critères environnementaux dans votre politique d'achat (par exemple via des certifications ou labels environnementaux) ? Oui systématiquement (par exemple via un cahier des charges avec des clauses sur l'environnement) Oui mais de manière partielle Non ce n'est pas pris en compte Non concernéQ9 / Intégrez-vous des critères environnementaux (chartes, certifications ou labels environnementaux, etc.) dans le choix de vos fournisseurs et sous-traitants ?) Oui systématiquement (par exemple via un cahier des charges avec des clauses sur l'environnement) Oui mais de manière partielle Non ce n'est pas pris en compte Non concernéQ10 / Seriez-vous intéressé pour un accompagnement à la réalisation d'un bilan carbone de votre structure ? Oui Non (même si je n'ai jamais réalisé de bilan carbone) Non car j'ai déjà réalisé un bilan carboneValider\n\n\n\n Back to top"
   },
   {
-    "objectID": "inscription.html",
-    "href": "inscription.html",
+    "objectID": "login.html",
+    "href": "login.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Inscription\n\n\nNom : \nPrénom : \nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n  \n    \n      À propos\n    \n  \n\n  \n    \n      Accueil\n    \n  \n\n\n\n\n Back to top"
+    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\n\nPas encore inscrit ?\n\n\n\nEmail ou mot de passe incorrect.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "index.html",
@@ -98,11 +91,25 @@
     "text": "Comment fonctionne l'outil d'auto-diagnostic ?\n\n  \n    \n      \n      Vous faîtes le point sur votre action pour la transition écologique\n      \n      En une soixantaine de questions  évaluez la maturité de votre entreprise \n    \n  \n    \n      \n      Vous obtenez un rapport détaillé\n      \n      Le positionnement de votre entreprise en 6 thématiques en fonction de vos réponses\n    \n\n    \n      \n      Vous accédez à des ressources pour aller plus loin\n      \n      Les partenaires de la démarche mettent à votre disposition toutes leurs expertises pour passer à l'action\n    \n  \n\n\n\n  \n    Je me connecte\n  \n\n\n\n  \n    \n      À propos\n    \n  \n\n  \n    \n      Accueil\n    \n  \n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "login.html",
-    "href": "login.html",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n  \n    \n      À propos\n    \n  \n\n  \n    \n      Accueil\n    \n  \n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "inscription.html",
+    "href": "inscription.html",
     "title": "Outil d'auto-diagnostic",
     "section": "",
-    "text": "Se connecter\n\n\nEmail : \nMot de passe : \n\nConnexion\n\n\n\n\nPas encore inscrit ?\n\n\n\nEmail ou mot de passe incorrect.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+    "text": "Inscription\n\n\nNom : \nPrénom : \nEmail : \nMot de passe : \n\nCréer un compte\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "navbar.html",
+    "href": "navbar.html",
+    "title": "Outil d'auto-diagnostic",
+    "section": "",
+    "text": "document.addEventListener(\"DOMContentLoaded\", function () {\n  const userPlaceholder = document.getElementById(\"navbar-user-placeholder\");\n\n  // Vérifie s'il y a un prénom/nom dans le localStorage\n  const firstName = localStorage.getItem(\"firstName\");\n  const lastName = localStorage.getItem(\"lastName\");\n\n  if (firstName && lastName) {\n    const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();\n\n    userPlaceholder.innerHTML = `\n      \n        \n          ${initials}\n        \n        \n          Déconnexion\n        \n      \n    `;\n\n    const userButton = document.getElementById(\"user-initials\");\n    const logoutMenu = document.getElementById(\"logout-menu\");\n    const logoutButton = document.getElementById(\"logout-button\");\n\n    userButton.addEventListener(\"mouseenter\", () =&gt; {\n      logoutMenu.style.display = \"block\";\n    });\n\n    userButton.addEventListener(\"mouseleave\", () =&gt; {\n      setTimeout(() =&gt; {\n        logoutMenu.style.display = \"none\";\n      }, 1000);\n    });\n\n    logoutMenu.addEventListener(\"mouseleave\", () =&gt; {\n      logoutMenu.style.display = \"none\";\n    });\n\n    logoutButton.addEventListener(\"click\", () =&gt; {\n      localStorage.removeItem(\"firstName\");\n      localStorage.removeItem(\"lastName\");\n      location.reload(); // recharge la page\n    });\n  } else {\n    userPlaceholder.innerHTML = `\n      \n        \n          Se connecter\n        \n      \n    `;\n  }\n});\n\n\n\n Back to top"
   },
   {
     "objectID": "question_1.html",
@@ -173,19 +180,5 @@
     "title": "Outil d'auto-diagnostic",
     "section": "Intégrez-vous des critères environnementaux dans votre politique d’achat (par exemple via des certifications ou labels environnementaux) ?",
     "text": "Intégrez-vous des critères environnementaux dans votre politique d’achat (par exemple via des certifications ou labels environnementaux) ?\n\nSélectionnez votre réponse :\n\nOui systématiquement (par exemple via un cahier des charges avec des clauses sur l’environnement)\nOui mais de manière partielle\nNon ce n’est pas pris en compte\nNon concerné\n\n Continuer plus tard Suivant"
-  },
-  {
-    "objectID": "navbar.html",
-    "href": "navbar.html",
-    "title": "Outil d'auto-diagnostic",
-    "section": "",
-    "text": "document.addEventListener(\"DOMContentLoaded\", function () {\n  const userPlaceholder = document.getElementById(\"navbar-user-placeholder\");\n\n  // Vérifie s'il y a un prénom/nom dans le localStorage\n  const firstName = localStorage.getItem(\"firstName\");\n  const lastName = localStorage.getItem(\"lastName\");\n\n  if (firstName && lastName) {\n    const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();\n\n    userPlaceholder.innerHTML = `\n      \n        \n          ${initials}\n        \n        \n          Déconnexion\n        \n      \n    `;\n\n    const userButton = document.getElementById(\"user-initials\");\n    const logoutMenu = document.getElementById(\"logout-menu\");\n    const logoutButton = document.getElementById(\"logout-button\");\n\n    userButton.addEventListener(\"mouseenter\", () =&gt; {\n      logoutMenu.style.display = \"block\";\n    });\n\n    userButton.addEventListener(\"mouseleave\", () =&gt; {\n      setTimeout(() =&gt; {\n        logoutMenu.style.display = \"none\";\n      }, 1000);\n    });\n\n    logoutMenu.addEventListener(\"mouseleave\", () =&gt; {\n      logoutMenu.style.display = \"none\";\n    });\n\n    logoutButton.addEventListener(\"click\", () =&gt; {\n      localStorage.removeItem(\"firstName\");\n      localStorage.removeItem(\"lastName\");\n      location.reload(); // recharge la page\n    });\n  } else {\n    userPlaceholder.innerHTML = `\n      \n        \n          Se connecter\n        \n      \n    `;\n  }\n});\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "assets/navbar.html",
-    "href": "assets/navbar.html",
-    "title": "Outil d'auto-diagnostic",
-    "section": "",
-    "text": "Back to top"
   }
 ]

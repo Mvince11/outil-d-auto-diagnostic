@@ -100,6 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="assets/navbar.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -125,8 +126,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./login.html"> 
-<span class="menu-text"><button style="padding: 8px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Se connecter</button></span></a>
+    <a class="nav-link" href="./#"> 
+<span class="menu-text">utilisateur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -276,7 +277,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/website\.quarto\.pub\/outil-dauto-diagnostic");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

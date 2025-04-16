@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (initiales) {
         // Bouton avec initiales (utilisateur connecté)
         btn.textContent = initiales;
-        btn.title = "Se déconnecter";
+        btn.setAttribute("data-tooltip", "Se déconnecter");
+        btn.classList.add("tooltip-btn");
         btn.style.cssText = `
           background-color: #007BFF;
           color: white;

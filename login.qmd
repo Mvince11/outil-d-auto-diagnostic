@@ -35,9 +35,12 @@ Pas encore inscrit ?
 </form>
 
 <p id="error-message" class="hidden-error">
-  Email ou mot de passe incorrect.
+
+Email ou mot de passe incorrect.
+
 </p>
 
+```{=html}
 <style>
   .hidden-error {
     display: none;
@@ -45,6 +48,7 @@ Pas encore inscrit ?
     text-align: center;
   }
 </style>
+```
 :::
 
 ```{=html}

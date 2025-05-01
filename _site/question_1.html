@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.38">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b663525e4b92bb903b2199e2d401bf36.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,10 +137,12 @@ ul.task-list li input[type="checkbox"] {
 <li><p><label><input type="checkbox">Non elle n’est pas intégrée dans notre stratégie</label></p></li>
 </ul>
 <p><br></p>
-<div style="display: flex; margin-top: 20px;">
-<p><button id="continuer" onclick="sauvegarderReponses()" style="color: #932020; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"> Continuer plus tard </button></p>
-<p><button onclick="window.location.href='question_2.html'" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"> Suivant </button></p>
-</div>
+<button id="continuer" onclick="sauvegarderReponsesContinuerPlusTard(1)" style="color: #932020; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+Continuer plus tard
+</button>
+<button onclick="sauvegarderReponses(1, 'question_2.html')" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+Suivant
+</button>
 <script src="assets/supabase-questionnaire-config.js"></script>
 
 <script>
@@ -189,9 +191,105 @@ ul.task-list li input[type="checkbox"] {
       alert("Une erreur est survenue.");
     }
   }
+  
+  async function sauvegarderReponsesContinuerPlusTard(questionNum) {
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+
+  const email = localStorage.getItem('email');
+  if (!email) {
+    alert("❌ Vous devez être connecté pour enregistrer vos réponses.");
+    return;
+  }
+
+  const payload = {
+    email: email,
+    question_num: questionNum,
+    reponse: responses.join("; "),
+    data_reponse: JSON.stringify(responses)
+  };
+
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/database_reponses_questionnaire`, {
+      method: "POST",
+      headers: {
+        "apikey": supabaseKey,
+        "Authorization": `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      // Sauvegarder l'avancement pour reprendre plus tard
+      localStorage.setItem("question_en_cours", questionNum);
+
+      alert("✔ Réponses enregistrées ! Vous pouvez revenir plus tard.");
+      window.location.href = "index.html";
+    } else {
+      console.error("❌ Erreur API Supabase :", result);
+      alert("Erreur lors de l'enregistrement.");
+    }
+  } catch (error) {
+    console.error("❌ Erreur JS :", error);
+    alert("Une erreur est survenue.");
+  }
+}
+async function sauvegarderReponsesContinuerPlusTard(questionNum) {
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+
+  const email = localStorage.getItem('email');
+  if (!email) {
+    alert("❌ Vous devez être connecté pour enregistrer vos réponses.");
+    return;
+  }
+
+  const payload = {
+    email: email,
+    question_num: questionNum,
+    reponse: responses.join("; "),
+    data_reponse: JSON.stringify(responses)
+  };
+
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/database_reponses_questionnaire`, {
+      method: "POST",
+      headers: {
+        "apikey": supabaseKey,
+        "Authorization": `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      // Sauvegarder l'avancement pour reprendre plus tard
+      localStorage.setItem("question_en_cours", questionNum);
+
+      alert("✔ Réponses enregistrées ! Vous pouvez revenir plus tard.");
+      window.location.href = "index.html";
+    } else {
+      console.error("❌ Erreur API Supabase :", result);
+      alert("Erreur lors de l'enregistrement.");
+    }
+  } catch (error) {
+    console.error("❌ Erreur JS :", error);
+    alert("Une erreur est survenue.");
+  }
+}
+
 </script>
-
-
 
 
 </section>

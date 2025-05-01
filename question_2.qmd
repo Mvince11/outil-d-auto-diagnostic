@@ -14,25 +14,27 @@ format: html
                     padding: 5px;
                     border-radius: 15px;'>Question 2 sur 10</strong>
 
-<div style='text-align: left; margin-bottom: 20px;'>
-<button onclick="window.location.href='question_1.html'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;'>Précédent</button>
-</div>
+::: {style="text-align: left; margin-bottom: 20px;"}
+<button onclick="window.location.href=&#39;question_1.html&#39;" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+
+Précédent
+
+</button>
+:::
 
 ## Une (ou plusieurs) personne au sein de votre structure est-elle "référente/pilote" sur le suivi des impacts environnementaux de votre activité ?
 
 ### Sélectionnez votre réponse :
 
-- [ ] Oui une personne (ou plusieurs) est chargée, à temps plein, de suivre nos impacts environnementaux (indiquez le nom de la (ou les) personne et son niveau de responsabilité)
+-   [ ] Oui une personne (ou plusieurs) est chargée, à temps plein, de suivre nos impacts environnementaux (indiquez le nom de la (ou les) personne et son niveau de responsabilité)
 
-- [ ] Oui, une personne est en charge de suivre nos impacts environnementaux mais cela ne représente qu'une petite partie de ses missions (indiquez le nom de la personne et son niveau de responsabilité)
+-   [ ] Oui, une personne est en charge de suivre nos impacts environnementaux mais cela ne représente qu'une petite partie de ses missions (indiquez le nom de la personne et son niveau de responsabilité)
 
-- [ ] Non
+-   [ ] Non
 
-<br>
-<button id='continuer' onclick='sauvegarderReponses()' style='color: #932020; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;'>Continuer plus tard</button>
-<button onclick="window.location.href='question_3.html'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;' >Suivant</button>
+<br> <button id='continuer' onclick='sauvegarderReponses()' style='color: #932020; border: none; padding: 10px; border-radius: 5px; cursor: pointer; margin-right: 10px;'>Continuer plus tard</button> <button onclick="window.location.href='question_3.html'" style='background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;' >Suivant</button>
 
-
+```{=html}
 <script>
 document.getElementById('quiz-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -52,4 +54,4 @@ function sauvegarderReponses() {
   alert('✔ Réponses enregistrées ! Vous pouvez revenir plus tard.');
  window.location.href = 'index.html'; }
 </script>
-
+```

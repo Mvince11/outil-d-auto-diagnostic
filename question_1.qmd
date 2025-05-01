@@ -29,17 +29,11 @@ format: html
 
 <br>
 
-<div style="display: flex; margin-top: 20px;">
-  <button id="continuer" onclick="sauvegarderReponses()" 
-    style="color: #932020; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-    Continuer plus tard
-  </button>
 
-  <button onclick="window.location.href='question_2.html'" 
-    style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-    Suivant
-  </button>
-</div>
+<button id="continuer" onclick="sauvegarderReponsesContinuerPlusTard(1)" 
+  style="color: #932020; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+  Continuer plus tard
+</button><button onclick="sauvegarderReponses(1, 'question_2.html')" style="background-color: red; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Suivant</button>
 
 ```{=html}
 <script src="assets/supabase-questionnaire-config.js"></script>
@@ -90,7 +84,103 @@ format: html
       alert("Une erreur est survenue.");
     }
   }
+  
+  async function sauvegarderReponsesContinuerPlusTard(questionNum) {
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+
+  const email = localStorage.getItem('email');
+  if (!email) {
+    alert("❌ Vous devez être connecté pour enregistrer vos réponses.");
+    return;
+  }
+
+  const payload = {
+    email: email,
+    question_num: questionNum,
+    reponse: responses.join("; "),
+    data_reponse: JSON.stringify(responses)
+  };
+
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/database_reponses_questionnaire`, {
+      method: "POST",
+      headers: {
+        "apikey": supabaseKey,
+        "Authorization": `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      // Sauvegarder l'avancement pour reprendre plus tard
+      localStorage.setItem("question_en_cours", questionNum);
+
+      alert("✔ Réponses enregistrées ! Vous pouvez revenir plus tard.");
+      window.location.href = "index.html";
+    } else {
+      console.error("❌ Erreur API Supabase :", result);
+      alert("Erreur lors de l'enregistrement.");
+    }
+  } catch (error) {
+    console.error("❌ Erreur JS :", error);
+    alert("Une erreur est survenue.");
+  }
+}
+async function sauvegarderReponsesContinuerPlusTard(questionNum) {
+  let responses = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach((checkbox) => {
+    responses.push(checkbox.value);
+  });
+
+  const email = localStorage.getItem('email');
+  if (!email) {
+    alert("❌ Vous devez être connecté pour enregistrer vos réponses.");
+    return;
+  }
+
+  const payload = {
+    email: email,
+    question_num: questionNum,
+    reponse: responses.join("; "),
+    data_reponse: JSON.stringify(responses)
+  };
+
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/database_reponses_questionnaire`, {
+      method: "POST",
+      headers: {
+        "apikey": supabaseKey,
+        "Authorization": `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      // Sauvegarder l'avancement pour reprendre plus tard
+      localStorage.setItem("question_en_cours", questionNum);
+
+      alert("✔ Réponses enregistrées ! Vous pouvez revenir plus tard.");
+      window.location.href = "index.html";
+    } else {
+      console.error("❌ Erreur API Supabase :", result);
+      alert("Erreur lors de l'enregistrement.");
+    }
+  } catch (error) {
+    console.error("❌ Erreur JS :", error);
+    alert("Une erreur est survenue.");
+  }
+}
+
 </script>
-
-
 ```

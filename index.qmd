@@ -57,7 +57,7 @@ format: html
     if (initiales) {
       window.location.href = "question_1.html";
     } else {
-      alert("Veuillez vous connecter pour accéder au questionnaire.");
+      alert("Veuillez vous identifier pour accéder au questionnaire.");
       window.location.href = "login.html";
     }
   });

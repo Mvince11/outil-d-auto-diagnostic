@@ -289,6 +289,17 @@ async function sauvegarderReponsesContinuerPlusTard(questionNum) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const email = localStorage.getItem("email");
+
+  // Si l'utilisateur n'est pas connecté, on redirige vers l'accueil
+  if (!email) {
+    alert("⚠️ Vous avez été déconnecté. Redirection vers l'accueil.");
+    window.location.href = "index.html";
+  }
+});
+
+
 </script>
 
 
